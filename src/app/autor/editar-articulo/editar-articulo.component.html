@@ -1,0 +1,30 @@
+<body>
+        <div class="container row indigo darken-1">
+            <br><br>
+            <form class="col s6">
+                <h5>Formulario para editar articulo:</h5>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input [(ngModel)]="articulo.titulo" [ngModelOptions]="{standalone: true}" id="titulo" type="text" class="validate">
+                        <label for="titulo">Titulo</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea [(ngModel)]="articulo.abstract" [ngModelOptions]="{standalone: true}" id="abstract" class="materialize-textarea"></textarea>
+                        <label for="abstract">Abstract</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input [(ngModel)]="articulo.palabrasClave" [ngModelOptions]="{standalone: true}" id="palabras_clave" type="text" class="validate">
+                        <label for="palabras_clave">Palabras clave</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a class="waves-effect waves-light btn green"><i class="material-icons right">check</i>Aceptar</a>
+                        <a class="waves-effect waves-light btn red"><i class="material-icons right">close</i>Cancelar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>

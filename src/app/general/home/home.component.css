@@ -1,0 +1,114 @@
+/* Custom Stylesheet */
+/**
+* Use this file to override Materialize files so you can update
+* the core Materialize files in the future
+*
+* Made By MaterializeCSS.com
+*/
+a{
+    background-color: #0d47a1;
+    font-weight: bold;
+}
+
+nav ul a,
+nav .brand-logo {
+    color: #444;
+}
+
+p {
+    line-height: 2rem;
+}
+
+.sidenav-trigger {
+    color: #26a69a;
+}
+
+.parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
+}
+.parallax-container .section {
+    width: 100%;
+}
+
+@media only screen and (max-width : 992px) {
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+    #index-banner .section {
+        top: 10%;
+    }
+}
+
+@media only screen and (max-width : 600px) {
+    #index-banner .section {
+        top: 0;
+    }
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+footer.page-footer {
+    margin: 0;
+}
+
+h1{
+    color: white;
+    text-shadow: #023859 3px -4px;
+    font-weight: 700;
+    line-height: 2;
+}
+
+h5{
+    color: white;
+    text-shadow: #023859 2px -2px;
+    font-weight: bold;
+    line-height: 3;
+}
+
+h3{
+    color: white;
+    text-shadow: #023859 2px -2px;
+    font-weight: lighter;
+    
+}
+
+.modal-bg{
+    background-color: #1a237e ;
+    max-width: 30%;
+    max-height: 100%;
+    border-radius: 7px;
+}
+
+.container-modal{
+    background-color: white;
+    max-height:200px;
+    border-radius: 7px;
+    border-style: outset;
+    border-width:thick;
+    border-color:#90caf9 ;
+}
+
+label{
+    color: black;
+}
+
+.modal-header{
+    color: white;
+    text-shadow: #9fa8da 2px -3px;
+    font-weight: 600;
+    line-height: 2;
+}
+
+.password{
+    color: white;
+    background-color: #1a237e;
+}

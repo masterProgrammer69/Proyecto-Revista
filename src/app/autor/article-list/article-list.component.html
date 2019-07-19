@@ -1,0 +1,31 @@
+<div class="container">
+        <h2>Lista de articulos:</h2>
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Resultados</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr *ngFor="let articulo of articulos">
+                <td style="width: 40%;">{{articulo.titulo}}</td>
+                <td>{{articulo.fecha}}</td>
+                <td>{{articulo.estado}}</td>
+                <td >
+                    <div *ngIf="articulo.estado!='Enviado'">
+                        <a class="waves-effect waves-light btn green"><i class="material-icons right">edit</i>Ver</a>
+                    </div>
+                </td>
+                <td>
+                    <a class="waves-effect waves-light btn green"><i class="material-icons right">get_app</i>Descargar</a>
+                    <a href="/autor/editar-articulo/{{articulo.idArticulo}}" class="waves-effect waves-light btn blue"><i class="material-icons right">edit</i>Editar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
