@@ -1,0 +1,39 @@
+{
+  "name": "Edicion",
+  "plural": "Ediciones",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Nombre": {
+      "type": "string",
+      "required": true
+    },
+    "Volumen": {
+      "type": "number",
+      "required": true
+    },
+    "Descripcion": {
+      "type": "string"
+    },
+    "FechaLimite": {
+      "type": "date",
+      "required": true
+    },
+    "EstaActiva": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "IdEditor": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

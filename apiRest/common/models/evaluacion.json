@@ -1,0 +1,31 @@
+{
+  "name": "Evaluacion",
+  "plural": "Evaluaciones",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "IdEvaluador": {
+      "type": "string",
+      "required": true
+    },
+    "IdArticulo": {
+      "type": "string",
+      "required": true
+    },
+    "Nota": {
+      "type": "number",
+      "required": true
+    },
+    "Comentario": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

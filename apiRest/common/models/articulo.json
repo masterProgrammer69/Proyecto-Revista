@@ -1,0 +1,43 @@
+{
+  "name": "Articulo",
+  "plural": "Articulos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "abstract": {
+      "type": "string",
+      "required": true
+    },
+    "palabrasClave": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "date",
+      "required": true
+    },
+    "estado": {
+      "type": "string",
+      "required": true,
+      "default": "enviado"
+    },
+    "idAutor": {
+      "type": "string",
+      "required": true
+    },
+    "idEdicion": {
+      "type": "string",
+      "default": "null"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

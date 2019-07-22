@@ -1,0 +1,62 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Autor": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Articulo": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Editor": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Edicion": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Evaluacion": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Evaluador": {
+    "dataSource": "db",
+    "public": true
+  }
+}

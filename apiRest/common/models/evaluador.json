@@ -1,0 +1,61 @@
+{
+  "name": "Evaluador",
+  "plural": "Evaluadores",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "PrimerNombre": {
+      "type": "string",
+      "required": true
+    },
+    "SegundoNombre": {
+      "type": "string"
+    },
+    "PrimerApellido": {
+      "type": "string",
+      "required": true
+    },
+    "SegundoApellido": {
+      "type": "string"
+    },
+    "Pais": {
+      "type": "string",
+      "required": true
+    },
+    "Telefono": {
+      "type": "string",
+      "required": true
+    },
+    "Correo": {
+      "type": "string",
+      "required": true
+    },
+    "Password": {
+      "type": "string",
+      "required": true
+    },
+    "Afiliacion": {
+      "type": "string"
+    },
+    "NivelDeFormacion": {
+      "type": "string",
+      "required": true
+    },
+    "Especialidad": {
+      "type": "string",
+      "required": true
+    },
+    "Estado": {
+      "type": "string",
+      "required": true,
+      "default": "pendiente"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
