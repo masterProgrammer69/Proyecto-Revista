@@ -8,14 +8,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./editar-articulo.component.css']
 })
 export class EditarArticuloComponent implements OnInit {
-  articulo={
+  /*articulo={
     idArticulo:null,
     titulo:null,
     abstract:null,
     palabrasClave:null
   }
 
-  constructor(private route:ActivatedRoute,private servicio:AutorService) { }
+  constructor() { }
   
   getUrlParameter = (parameterName: string)=>{
     return this.route.snapshot.paramMap.get(parameterName);
@@ -28,6 +28,9 @@ export class EditarArticuloComponent implements OnInit {
     this.articulo.idArticulo=articuloEncontrado.id;
     this.articulo.abstract=articuloEncontrado.abstract;
     this.articulo.palabrasClave=articuloEncontrado.palabrasClave;
-  }
+  }*/
+
+  constructor() { }
+  ngOnInit() {}
 
 }

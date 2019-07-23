@@ -32,8 +32,7 @@
       "required": true
     },
     "idEdicion": {
-      "type": "string",
-      "default": "null"
+      "type": "string"
     }
   },
   "validations": [],

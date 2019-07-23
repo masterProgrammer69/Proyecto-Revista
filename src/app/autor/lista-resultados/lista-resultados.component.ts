@@ -13,7 +13,6 @@ export class ListaResultadosComponent implements OnInit {
   
   ngOnInit() 
   {
-    this.resultados=this.servicio.getListaResultados();
   }
   
 }
