@@ -18,7 +18,7 @@ const routes: Routes = [
     component:RegistrarArticuloComponent
   },
   {
-    path:"autor/lista-de-articulos",
+    path:"autor/lista-de-articulos/:idAutor",
     component:ArticleListComponent
   },
   {

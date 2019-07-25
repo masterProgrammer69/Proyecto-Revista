@@ -14,33 +14,33 @@
     "SegundoNombre": {
       "type": "string"
     },
-    "PrimerApellido": {
+    "primerApellido": {
       "type": "string",
       "required": true
     },
-    "SegundoApellido": {
+    "segundoApellido": {
       "type": "string"
     },
-    "Pais": {
+    "pais": {
       "type": "string",
       "required": true
     },
-    "Telefono": {
+    "telefono": {
       "type": "string",
       "required": true
     },
-    "Correo": {
+    "correo": {
       "type": "string",
       "required": true
     },
-    "Password": {
+    "password": {
       "type": "string",
       "required": true
     },
-    "Afiliacion": {
+    "afiliacion": {
       "type": "string"
     },
-    "NivelDeFormacion": {
+    "nivelDeFormacion": {
       "type": "string",
       "required": true
     }

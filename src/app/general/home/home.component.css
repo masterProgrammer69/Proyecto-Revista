@@ -112,3 +112,8 @@ label{
     color: white;
     background-color: #1a237e;
 }
+
+.alerta{
+    color: red;
+    font-weight: bold
+}
