@@ -18,4 +18,9 @@ export class AutorService {
   getArticulosPorAutor(idAutor:string): Observable<articuloModel[]> {
     return this.http.get<articuloModel[]>(`${url_base}articulos?filter[where][IdAutor]=${idAutor}`);
   }
+
+  buscarArticulo(idArticulo:string): Observable<articuloModel> {
+    return this.http.get<articuloModel>(`${url_base}articulos/${idArticulo}`);
+  }
+
 }

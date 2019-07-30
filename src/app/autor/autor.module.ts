@@ -8,7 +8,11 @@ import { ListaResultadosComponent } from './lista-resultados/lista-resultados.co
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [ListaResultadosComponent,ArticleListComponent, EditarArticuloComponent,RegistrarAutorComponent,RegistrarArticuloComponent, ListaResultadosComponent],
+  declarations: [ListaResultadosComponent,
+    ArticleListComponent, 
+    EditarArticuloComponent,
+    RegistrarAutorComponent,
+    RegistrarArticuloComponent],
   imports: [
     CommonModule,
     FormsModule

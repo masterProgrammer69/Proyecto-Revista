@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneralService } from '../general.service';
-import { autorModel } from 'src/app/models/autor.model';
-import { articuloModel } from 'src/app/models/articulo.model';
+import { UserService } from '../../servicios/user.service';
 
 
 @Component({
@@ -10,27 +8,19 @@ import { articuloModel } from 'src/app/models/articulo.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  correo:string = null;
-  password:string = null;
-  autores:autorModel[]=[];
-  listaArticulos:articuloModel[]=[];
-  alertaNoEncontrado:string="";
-
-  constructor(private servicio:GeneralService) { }
-
-  ngOnInit() {
-    this.getArticulos();
+  
+  correo:string = "";
+  password:string = "";
+  
+  constructor(private servicio:UserService) { }
+  
+  ngOnInit() {  
   }
-
-  buscarUsuario():void{
-    this.alertaNoEncontrado="El correo o la contraseña son erroneas!";
-    this.servicio.buscarUsuario(this.password, this.correo).subscribe(autor =>{this.autores=autor});
+  
+  loginUser():void{
+    this.servicio.loginUser(this.password, this.correo).subscribe(item =>{
+      this.servicio.guardarToken(item.id); 
+      this.servicio.guardarInformacionUser(item.user);
+    });
   }
-
-  getArticulos():void{
-    this.servicio.getArticulos().subscribe(articulos =>{this.listaArticulos=articulos});
-  }
-
-
 }

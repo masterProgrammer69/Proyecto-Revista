@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AutorService } from '../autor.service';
+import { AutorService } from '../../servicios/articulo.service';
 import { articuloModel } from 'src/app/models/articulo.model';
 import { ActivatedRoute } from '@angular/router';
 
@@ -20,8 +20,8 @@ export class ArticleListComponent implements OnInit {
     this.getArticulosPorAutor();
   }
 
-  getUrlParametro=(id:string)=>{
-    return this.route.snapshot.paramMap.get(id)
+  getUrlParametro = (idAutor:string)=>{
+    return this.route.snapshot.paramMap.get(idAutor);
   }
 
   getArticulosPorAutor():void{

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AutorService } from '../autor.service';
+import { AutorService } from '../../servicios/articulo.service';
 
 @Component({
   selector: 'app-lista-resultados',

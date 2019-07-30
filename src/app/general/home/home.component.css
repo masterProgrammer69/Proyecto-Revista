@@ -117,3 +117,11 @@ label{
     color: red;
     font-weight: bold
 }
+
+.tabla-home{
+    text-align: left;
+    border-radius: 5px;
+    /*background-color:*/
+    /*background-image: url("/assets/img/data-blur.jpg");*/
+    background-color: rgba(225, 225, 225,1);
+}

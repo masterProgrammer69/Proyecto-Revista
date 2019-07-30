@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/servicios/user.service';
+import { isNullOrUndefined } from 'util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  usuarioLogueado:boolean=false;
+
+  constructor(private servicio:UserService, private router:Router) { }
 
   ngOnInit() {
+    this.mostrarMenu();
+  }
+
+  mostrarMenu():void{
+    let userInfo=this.servicio.getInformacionUser();
+    if(isNullOrUndefined(userInfo))
+    {
+      this.usuarioLogueado=false;
+    }else
+    {
+      this.usuarioLogueado=true;
+    }
+  }
+
+  salir(){
+    this.servicio.logOutUser();
+    this.router.navigate(["/home"]);
   }
 
 }

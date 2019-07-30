@@ -1,33 +1,35 @@
-<p>work</p>
-<!--
 <body>
-        <div class="container row indigo darken-1">
-            <br><br>
-            <form class="col s6">
-                <h5>Formulario para editar articulo:</h5>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input [(ngModel)]="articulo.titulo" [ngModelOptions]="{standalone: true}" id="titulo" type="text" class="validate">
-                        <label for="titulo">Titulo</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <textarea [(ngModel)]="articulo.abstract" [ngModelOptions]="{standalone: true}" id="abstract" class="materialize-textarea"></textarea>
-                        <label for="abstract">Abstract</label>
-                    </div>
+    <br><br>
+    <div class="container row">
+        <form class="col s12">
+            <h4>Formulario para editar articulo:</h4>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input value="." [(ngModel)]="articulo.Titulo" [ngModelOptions]="{standalone: true}" id="titulo" type="text" class="validate">
+                    <label class="active" for="titulo">Titulo</label>
                 </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input [(ngModel)]="articulo.palabrasClave" [ngModelOptions]="{standalone: true}" id="palabras_clave" type="text" class="validate">
-                        <label for="palabras_clave">Palabras clave</label>
-                    </div>
+                <div class="input-field col s6">
+                    <input value="." [(ngModel)]="articulo.PalabrasClave" [ngModelOptions]="{standalone: true}" id="palabras_clave" type="text" class="validate">
+                    <label class="active" for="palabras_clave">Palabras clave</label>
+                </div>              
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea value="." [(ngModel)]="articulo.Abstract" [ngModelOptions]="{standalone: true}" id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1" class="active">Abstract</label>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <a class="waves-effect waves-light btn green"><i class="material-icons right">check</i>Aceptar</a>
-                        <a class="waves-effect waves-light btn red"><i class="material-icons right">close</i>Cancelar</a>
-                    </div>
+                
+            </div>
+            <div class="row">
+                <div class="input-field col s4"></div>
+                <div class="input-field col s2">
+                    <a class="waves-effect green darken-4 btn"><i class="material-icons right">save</i>Guardar</a>
                 </div>
-            </form>
-        </div>
-    </body>
-    -->
+                <div class="input-field col s5">
+                    <a class="waves-effect red darken-3 btn"><i class="material-icons right">close</i>Cancelar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+</body>

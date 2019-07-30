@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AutorService } from '../autor.service';
+import { AutorService } from '../../servicios/articulo.service';
+import { articuloModel } from 'src/app/models/articulo.model';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,29 +9,22 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./editar-articulo.component.css']
 })
 export class EditarArticuloComponent implements OnInit {
-  /*articulo={
-    idArticulo:null,
-    titulo:null,
-    abstract:null,
-    palabrasClave:null
-  }
-
-  constructor() { }
   
-  getUrlParameter = (parameterName: string)=>{
-    return this.route.snapshot.paramMap.get(parameterName);
-  }
-
+  articulo:articuloModel;
+  id=null;
+  
+  constructor(private servicio:AutorService,private route:ActivatedRoute) { }
+  
   ngOnInit() {
-    let id=this.getUrlParameter("id");
-    let articuloEncontrado=this.servicio.buscarArticulo(id);
-    this.articulo.titulo=articuloEncontrado.titulo;
-    this.articulo.idArticulo=articuloEncontrado.id;
-    this.articulo.abstract=articuloEncontrado.abstract;
-    this.articulo.palabrasClave=articuloEncontrado.palabrasClave;
-  }*/
-
-  constructor() { }
-  ngOnInit() {}
-
+    this.id=this.getUrlParameter("idArticulo");
+    this.buscarArticulo();
+  }
+  
+  getUrlParameter = (idArticulo: string)=>{
+    return this.route.snapshot.paramMap.get(idArticulo);
+  }
+  
+  buscarArticulo():void{
+    this.servicio.buscarArticulo(this.id).subscribe(articulo =>{this.articulo=articulo});
+  }
 }

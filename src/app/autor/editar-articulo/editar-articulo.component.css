@@ -1,0 +1,20 @@
+body{
+    background-image:url("/assets/img/star-trail.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+.container{
+    border-radius: 5px;
+    background-color:rgba(255, 255, 255);
+}
+
+h4{
+    color:black;
+    font-weight:bold;
+}
+
+.row{      
+    border-radius: 5px;
+    background-color:rgba(255, 255, 255,0.8);
+}

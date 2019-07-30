@@ -1,4 +1,4 @@
-export interface autorModel{
+export interface userModel{
     id:string;
     primerNombre:string;
     segundoNombre:string;
@@ -6,8 +6,10 @@ export interface autorModel{
     segundoApellido:string;
     pais:string;
     telefono:string;
-    correo:string;
+    email:string;
     password:string;
     afiliacion:string;
     nivelDeFormacion:string;
+    rol:string;
+    user:userModel;
 }

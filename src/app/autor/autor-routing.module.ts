@@ -26,7 +26,7 @@ const routes: Routes = [
     component:ListaResultadosComponent
   },
   {
-    path:"autor/editar-articulo/:id",
+    path:"autor/editar-articulo/:idArticulo",
     component:EditarArticuloComponent
   }
 ];
