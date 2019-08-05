@@ -46,16 +46,16 @@ testem.log
 Thumbs.db
 
 #nuevos
-.editorconfig
-e2e
-karma.conf.js
-package-lock.json
-package.json
-tsconfig.app.json
-tsconfig.json
-tsconfig.spec.json
-tslint.json
-README.md
-browserslist
+#.editorconfig
+#2e
+#karma.conf.js
+#package-lock.json
+#package.json
+#tsconfig.app.json
+#tsconfig.json
+#tsconfig.spec.json
+#tslint.json
+#README.md
+#browserslist
 
 
