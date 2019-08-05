@@ -9,5 +9,21 @@
     "user": "",
     "useNewUrlParser": true,
     "connector": "mongodb"
+  },
+  "Email":{
+    "name":"Email",
+    "connector":"mail",
+    "transports":[
+      {
+        "type":"SMTP",
+        "host":"smtp.gmail.com",
+        "secure":"true",
+        "port":465,
+        "auth":{
+          "user":"pruebas.programacion.web@gmail.com",
+          "pass":"test-password-123"
+        }
+      }
+    ]
   }
 }

@@ -9,7 +9,8 @@
             <div class="row center">
                 <!-- Modal Trigger -->
                 <a class="modal-trigger waves-effect waves-light btn-large" href="#modal1">Ingresar</a>
-                
+                &nbsp;&nbsp;
+                <a class="waves-effect waves-light btn-large" href="/lista-de-articulos" >Articulos</a> 
                 <!-- Modal Structure -->               
                 <div id="modal1" class="modal modal-bg">     
                     <div class="container">
@@ -31,7 +32,7 @@
                     <a class="password" href="/cambiar-password">olvidaste tu contraseña?</a>
                     <p></p>
                     <div class="modal-footer">
-                        <a  href="#!" (click)="loginUser()" class="btn btn-primary">Aceptar</a>
+                        <a (click)="loginUser()" class="btn btn-primary">Aceptar</a>
                     </div>
                 </div>           
             </div>
@@ -56,12 +57,11 @@
                             conocimiento, a través de los resultados originales producto de investigaciones científicas,
                             que representen una contribución para el desarrollo de la ciencia y la tecnología.</p>
                         </div>
-                    </div>
-                    
+                    </div>          
                     <div class="col s12 m4">
                         <div class="icon-block">
                             <h2 class="center white-text"><i class="material-icons">done_all</i></h2>
-                            <h5 class="center">Forma de evaluar</h5>
+                            <h5 class="center">Evaluacion</h5>
                             
                             <p class="light" style="color: white"> La evaluación no es una actividad orientada a verificar
                                 mediante listas
@@ -72,8 +72,7 @@
                                 del editor y del evaluador. En suma, nuestro enfoque evaluativo es textual,
                                 interaccional y formativo.</p>
                             </div>
-                        </div>
-                        
+                        </div>              
                         <div class="col s12 m4">
                             <div class="icon-block">
                                 <h2 class="center white-text"><i class="material-icons">class</i></h2>
@@ -90,49 +89,6 @@
                     </div>    
                 </div>
             </div>
-        </div>
-        <div class="parallax-container valign-wrapper">
-            <div class="section no-pad-bot">
-                <div class="container">
-                    <div class="row center">
-                        <h5 class="header col s12 light">¡Puedes disfrutar de todos nuestros articulos gratuitos y descargarlos!</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="parallax"><img src="/assets/img/teclado.jpg" alt="Unsplashed background img 2" style="opacity: 1; transform: translate3d(-50%, 244.562px, 0px);"></div>
-        </div>
-        <div class="indigo darken-4">
-            <br>
-            <div class="container tabla-home">
-                <div class="section">      
-                    <div class="row">
-                        <div class="col s12 center">
-                            <h2>Lista de articulos:</h2>
-                            <table class="responsive-table">
-                                <thead>
-                                    <tr>
-                                        <th>Titulo</th>
-                                        <th>Abstract</th>
-                                        <th>Fecha</th>
-                                        <th>Accion</th>
-                                    </tr>
-                                </thead>          
-                                <tbody>
-                                    <tr *ngFor="let articulo of listaArticulos">
-                                        <td style="width: 20%;">{{articulo.Titulo}}</td>
-                                        <td style="width: 50%;">{{articulo.Abstract}}</td>
-                                        <td>{{articulo.Fecha | date}}</td>
-                                        <td>
-                                            <a class="waves-effect waves-light btn green"><i class="material-icons right">get_app</i>Descargar</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>              
-                </div>
-            </div>
-            <br>
         </div>
         <div class="parallax-container valign-wrapper">
             <div class="section no-pad-bot">

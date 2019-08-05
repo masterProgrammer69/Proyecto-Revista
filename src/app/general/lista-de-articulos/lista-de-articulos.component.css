@@ -62,7 +62,7 @@ footer.page-footer {
 
 h1{
     color: white;
-    text-shadow: #023859 2px -3px;
+    text-shadow: #023859 3px -4px;
     font-weight: 700;
     line-height: 2;
 }
@@ -70,15 +70,13 @@ h1{
 h5{
     color: white;
     text-shadow: #023859 2px -2px;
-    font-weight: bold;
     line-height: 3;
 }
 
 h3{
     color: white;
     text-shadow: #023859 2px -2px;
-    font-weight: lighter;
-    
+    font-weight: bold;
 }
 
 .modal-bg{

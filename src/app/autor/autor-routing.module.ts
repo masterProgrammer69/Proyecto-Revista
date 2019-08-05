@@ -6,6 +6,7 @@ import { EditarArticuloComponent } from './editar-articulo/editar-articulo.compo
 import { RegistrarAutorComponent } from './registrar-autor/registrar-autor.component';
 import { RegistrarArticuloComponent } from './registrar-articulo/registrar-articulo.component';
 import { ListaResultadosComponent } from './lista-resultados/lista-resultados.component';
+import { UrlInjectionGuard } from '../guards/url-injection.guard';
 
 
 const routes: Routes = [
@@ -15,19 +16,31 @@ const routes: Routes = [
   },
   {
     path:"autor/registrar-articulo",
-    component:RegistrarArticuloComponent
+    component:RegistrarArticuloComponent,
+    canActivate:[
+      UrlInjectionGuard
+    ]
   },
   {
-    path:"autor/lista-de-articulos/:idAutor",
-    component:ArticleListComponent
+    path:"autor/lista-de-articulos",
+    component:ArticleListComponent,
+    canActivate:[
+      UrlInjectionGuard
+    ]
   },
   {
     path:"autor/lista-de-resultados",
-    component:ListaResultadosComponent
+    component:ListaResultadosComponent,
+    canActivate:[
+      UrlInjectionGuard
+    ]
   },
   {
     path:"autor/editar-articulo/:idArticulo",
-    component:EditarArticuloComponent
+    component:EditarArticuloComponent,
+    canActivate:[
+      UrlInjectionGuard
+    ]
   }
 ];
 
