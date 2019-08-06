@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AutorService } from '../../servicios/articulo.service';
 import { articuloModel } from 'src/app/models/articulo.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/servicios/user.service';
+import { userModel } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-article-list',
@@ -11,21 +13,21 @@ import { ActivatedRoute } from '@angular/router';
 export class ArticleListComponent implements OnInit {
 
   listaArticulos:articuloModel[]=[];
-  id=null;
 
-  constructor(private servicio:AutorService, private route:ActivatedRoute) { }
+  constructor(private servicioUser:UserService,private servicioAutor:AutorService, /*private route:ActivatedRoute*/) { }
     
   ngOnInit() {
-    this.id=this.getUrlParametro("idAutor");
+    //this.id=this.getUrlParametro("idAutor");
     this.getArticulosPorAutor();
   }
 
-  getUrlParametro = (idAutor:string)=>{
+  /*getUrlParametro = (idAutor:string)=>{
     return this.route.snapshot.paramMap.get(idAutor);
-  }
+  }*/
 
   getArticulosPorAutor():void{
-    this.servicio.getArticulosPorAutor(this.id).subscribe(articulos =>{this.listaArticulos=articulos});
+    let id=this.servicioUser.getIdUser();
+    this.servicioAutor.getArticulosPorAutor(id).subscribe(articulos =>{this.listaArticulos=articulos});
   }
 
   

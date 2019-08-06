@@ -6,11 +6,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.component';
 import { ListaDeArticulosComponent } from './lista-de-articulos/lista-de-articulos.component';
 import { AutorRoutingModule } from '../autor/autor-routing.module';
+import { LogoutGuard } from '../guards/logout.guard';
 
 const routes: Routes = [
   {
     path:"home",
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate:[
+      LogoutGuard
+    ]
   },
   {
     path:"cambiar-password",
@@ -19,8 +23,10 @@ const routes: Routes = [
   },
   {
     path:"lista-de-articulos",
-    component: ListaDeArticulosComponent
-    
+    component: ListaDeArticulosComponent,
+    canActivate:[
+      LogoutGuard
+    ]
   },
   {
     path:"not-found",
@@ -29,7 +35,10 @@ const routes: Routes = [
   {
     path:"",
     pathMatch:"full",
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate:[
+      LogoutGuard
+    ]
   },
   {
     path:"**",

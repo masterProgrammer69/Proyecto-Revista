@@ -55,6 +55,11 @@ export class UserService {
     return userInfo;
   }
 
+  getIdUser() {
+    let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    return userInfo["userId"];
+  }
+
   logOutUser() {
     localStorage.removeItem("userInfo");
     localStorage.removeItem("userTk");

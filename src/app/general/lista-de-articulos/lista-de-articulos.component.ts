@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AutorService } from 'src/app/servicios/articulo.service';
+import { articuloModel } from 'src/app/models/articulo.model';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-lista-de-articulos',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaDeArticulosComponent implements OnInit {
 
-  constructor() { }
+  listaArticulos:articuloModel[]=[];
+  cp:number=1;
+  total:number=0;
+
+  constructor(private servicio:AutorService) { }
 
   ngOnInit() {
+    this.getArticulos();
   }
 
+  getArticulos():void{
+    this.servicio.getArticulos().subscribe(articulos =>{this.listaArticulos=articulos;
+      this.total=articulos.length;
+    });
+  }
+
+
+  
 }
