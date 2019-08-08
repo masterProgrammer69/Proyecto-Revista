@@ -56,6 +56,8 @@ export class UserService {
     return userInfo;
   }
 
+  
+
   getIdUser() {
     let userInfo = JSON.parse(localStorage.getItem("userInfo"));
     return userInfo["userId"];
@@ -66,4 +68,8 @@ export class UserService {
     localStorage.removeItem("userTk");
   }
 
+  getIdUser2() {
+    let userInfo = localStorage.getItem("userInfo");
+    return userInfo["userId"];
+  }
 }

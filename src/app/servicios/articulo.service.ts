@@ -20,15 +20,15 @@ export class AutorService {
   }
 
   getArticulosPorAutor(idAutor:string): Observable<articuloModel[]> {
-    return this.http.get<articuloModel[]>(`${url_base}articulos?filter[where][IdAutor]=${idAutor}`);
+    return this.http.get<articuloModel[]>(`${url_base}articulos?access_token=${this.token}&filter[where][IdAutor]=${idAutor}`);
   }
 
   buscarArticulo(idArticulo:string): Observable<articuloModel> {
-    return this.http.get<articuloModel>(`${url_base}articulos/${idArticulo}`);
+    return this.http.get<articuloModel>(`${url_base}articulos/${idArticulo}?access_token=${this.token}`);
   }
 
   actualizarArticulo(articulo:articuloModel): Observable<articuloModel> {
-    return this.http.put<articuloModel>(`${url_base}articulos`,articulo,
+    return this.http.put<articuloModel>(`${url_base}articulos?access_token=${this.token}`,articulo,
     {
       headers:new HttpHeaders({
         "content-type":"application/json"
@@ -37,7 +37,7 @@ export class AutorService {
   }
 
   crearArticulo(articulo:articuloModel): Observable<articuloModel> {
-    return this.http.post<articuloModel>(`${url_base}articulos?access_token=${this.token}`,articulo,{
+    return this.http.post<articuloModel>(`${url_base}Articulos?access_token=${this.token}`,articulo,{
       headers:new HttpHeaders({
         "content-type":"application/json"
       })

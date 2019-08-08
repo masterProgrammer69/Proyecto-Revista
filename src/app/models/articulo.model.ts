@@ -1,5 +1,5 @@
 export interface articuloModel{
-    id:string;
+    id?:string;
     titulo:string;
     abstract:string;
     palabrasClave:string;

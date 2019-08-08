@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AutorModule } from '../autor.module';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-registrar-articulo',
@@ -57,7 +58,6 @@ export class RegistrarArticuloComponent implements OnInit {
     if(this.articuloFormGroup.valid)
     {
       let articulo:articuloModel={
-        id:null,
         titulo:this.Titulo.value,
         abstract:this.Abstract.value,
         palabrasClave:this.PalabrasClave.value,
@@ -67,6 +67,8 @@ export class RegistrarArticuloComponent implements OnInit {
         estado:"enviado"
       }
       
+      articulo.idAutor=this.userService.getIdUser2();
+      console.log("Id autor="+articulo.idAutor);
       this.service.crearArticulo(articulo).subscribe(item=>{
         console.log("Guardando datos editados");
         this.router.navigate(["/autor/lista-de-articulos"]);
