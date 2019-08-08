@@ -49,7 +49,8 @@ export class UserService {
 
   getInformacionUser() {
     let userInfo = (JSON.stringify(localStorage.getItem("userInfo")));
-    if (isNullOrUndefined(userInfo)) {
+    if (userInfo=="null") {
+      console.log("retorna null")
       return null;
     }
     return userInfo;

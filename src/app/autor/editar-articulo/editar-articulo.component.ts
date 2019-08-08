@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AutorService } from '../../servicios/articulo.service';
 import { articuloModel } from 'src/app/models/articulo.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-editar-articulo',
@@ -10,10 +10,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditarArticuloComponent implements OnInit {
   
-  articulo:articuloModel;
+  articulo:articuloModel={
+    titulo:null,
+    abstract:null,
+    palabrasClave:null,
+    id:null,
+    fecha:null,
+    idEdicion:null,
+    idAutor:null,
+    estado:null
+  };
   id=null;
   
-  constructor(private servicio:AutorService,private route:ActivatedRoute) { }
+  constructor(private servicio:AutorService,private route:ActivatedRoute,private router:Router) { }
   
   ngOnInit() {
     this.id=this.getUrlParameter("idArticulo");
@@ -26,5 +35,12 @@ export class EditarArticuloComponent implements OnInit {
   
   buscarArticulo():void{
     this.servicio.buscarArticulo(this.id).subscribe(articulo =>{this.articulo=articulo});
+  }
+
+  guardarInfo():void{
+    this.servicio.actualizarArticulo(this.articulo).subscribe(item=>{
+      console.log("Guardando datos editados");
+      this.router.navigate(["/autor/lista-de-articulos"]);
+    });
   }
 }

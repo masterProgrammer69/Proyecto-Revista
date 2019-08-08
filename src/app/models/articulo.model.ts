@@ -3,8 +3,8 @@ export interface articuloModel{
     titulo:string;
     abstract:string;
     palabrasClave:string;
-    fecha:string;
-    estado:Date;
+    fecha:Date;
+    estado:string;
     idAutor:string;
     idEdicion:string;
 }

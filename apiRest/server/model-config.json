@@ -59,7 +59,7 @@
     "dataSource": "db",
     "public": true
   },
-  "Email":{
+  "Email": {
     "dataSource": "Email",
     "public": true
   }

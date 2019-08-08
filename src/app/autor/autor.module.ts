@@ -6,6 +6,7 @@ import { RegistrarAutorComponent } from './registrar-autor/registrar-autor.compo
 import { RegistrarArticuloComponent } from './registrar-articulo/registrar-articulo.component';
 import { ListaResultadosComponent } from './lista-resultados/lista-resultados.component';
 import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [ListaResultadosComponent,
@@ -15,7 +16,8 @@ import {FormsModule} from '@angular/forms';
     RegistrarArticuloComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[RegistrarAutorComponent,
     RegistrarArticuloComponent,

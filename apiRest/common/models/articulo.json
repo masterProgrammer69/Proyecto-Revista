@@ -16,11 +16,11 @@
       "required": true
     },
     "palabrasClave": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "fecha": {
-      "type": "date",
-      "required": true
+      "type": "date"
     },
     "estado": {
       "type": "string",
@@ -28,8 +28,7 @@
       "default": "enviado"
     },
     "idAutor": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "idEdicion": {
       "type": "string"
@@ -37,6 +36,19 @@
   },
   "validations": [],
   "relations": {},
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
   "methods": {}
 }

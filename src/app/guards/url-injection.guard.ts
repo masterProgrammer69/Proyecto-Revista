@@ -13,7 +13,7 @@ export class UrlInjectionGuard implements  CanActivate{
   canActivate()
   {
     console.log("guard1-:"+this.userService.getInformacionUser());
-    if(this.userService.getInformacionUser()=="null")
+    if(this.userService.getInformacionUser()==null || this.userService.getInformacionUser()=="null")
     {
       console.log("guard-1:no esta logueado")
       this.router.navigate(["/home"]);
