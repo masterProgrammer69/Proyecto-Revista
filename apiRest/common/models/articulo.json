@@ -7,30 +7,30 @@
     "validateUpsert": true
   },
   "properties": {
-    "titulo": {
+    "Titulo": {
       "type": "string",
       "required": true
     },
-    "abstract": {
+    "Abstract": {
       "type": "string",
       "required": true
     },
-    "palabrasClave": {
+    "PalabrasClave": {
       "type": "string",
       "required": true
     },
-    "fecha": {
+    "Fecha": {
       "type": "date"
     },
-    "estado": {
+    "Estado": {
       "type": "string",
       "required": true,
       "default": "enviado"
     },
-    "idAutor": {
+    "IdAutor": {
       "type": "string"
     },
-    "idEdicion": {
+    "IdEdicion": {
       "type": "string"
     }
   },
@@ -44,10 +44,11 @@
       "permission": "ALLOW"
     },
     {
-      "accessType": "*",
+      "accessType": "EXECUTE",
       "principalType": "ROLE",
       "principalId": "$unauthenticated",
-      "permission": "DENY"
+      "permission": "ALLOW",
+      "property": "articulos"
     }
   ],
   "methods": {}

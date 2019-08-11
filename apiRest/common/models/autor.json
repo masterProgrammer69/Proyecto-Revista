@@ -22,8 +22,7 @@
       "type": "string"
     },
     "pais": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "telefono": {
       "type": "string",
@@ -41,8 +40,7 @@
       "type": "string"
     },
     "nivelDeFormacion": {
-      "type": "string",
-      "required": true
+      "type": "string"
     }
   },
   "validations": [],

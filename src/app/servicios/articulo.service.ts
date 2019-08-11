@@ -16,7 +16,7 @@ export class AutorService {
   }
 
   getArticulos(): Observable<articuloModel[]> {
-    return this.http.get<articuloModel[]>(`${url_base}articulos?access_token=${this.token}`); //consigue todos los articulos
+    return this.http.get<articuloModel[]>(`${url_base}Articulos`); //consigue todos los articulos
   }
 
   getArticulosPorAutor(idAutor:string): Observable<articuloModel[]> {

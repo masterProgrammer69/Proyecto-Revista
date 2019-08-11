@@ -11,14 +11,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditarArticuloComponent implements OnInit {
   
   articulo:articuloModel={
-    titulo:null,
-    abstract:null,
-    palabrasClave:null,
-    id:null,
-    fecha:null,
-    idEdicion:null,
-    idAutor:null,
-    estado:null
+    Titulo:null,
+    Abstract:null,
+    PalabrasClave:null,
+    Fecha:null,
+    IdEdicion:null,
+    IdAutor:null,
+    Estado:null
   };
   id=null;
   

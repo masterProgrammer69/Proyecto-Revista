@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
   mostrarMenu():void{
     let userInfo=this.servicio.getInformacionUser();
-    if(userInfo=="null")
+    if(userInfo==null)
     {
       this.usuarioLogueado=false;
     }else

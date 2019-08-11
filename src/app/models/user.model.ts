@@ -11,5 +11,5 @@ export interface userModel{
     afiliacion:string;
     nivelDeFormacion:string;
     rol:string;
-    user:userModel;
+    //user:userModel;
 }

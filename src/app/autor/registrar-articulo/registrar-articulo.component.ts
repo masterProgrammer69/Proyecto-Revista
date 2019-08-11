@@ -4,8 +4,6 @@ import { articuloModel } from 'src/app/models/articulo.model';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AutorModule } from '../autor.module';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-registrar-articulo',
@@ -20,7 +18,11 @@ export class RegistrarArticuloComponent implements OnInit {
       titulo:new FormControl('',[Validators.required]),
       abstract:new FormControl('',[Validators.required]),
       palabrasClave:new FormControl('',[Validators.required]),
-      //fecha:new FormControl('',[Validators.required]),
+      id:new FormControl('',[]),
+      fecha:new FormControl('',[]),
+      idEdicion:new FormControl('',[]),
+      idAutor:new FormControl('',[]),
+      estado:new FormControl('',[]),
     });
   }
   
@@ -36,17 +38,6 @@ export class RegistrarArticuloComponent implements OnInit {
     return this.articuloFormGroup.get('palabrasClave');
   }
   
-  /*articulo:articuloModel={
-    titulo:null,
-    abstract:null,
-    palabrasClave:null,
-    id:null,
-    fecha:null,
-    idEdicion:null,
-    idAutor:null,
-    estado:"enviado"
-  };*/ 
-  
   constructor(private userService:UserService,private service:AutorService,private router:Router) {
     this.articuloFormGroup=this.formGroupCreator();
   }
@@ -58,25 +49,32 @@ export class RegistrarArticuloComponent implements OnInit {
     if(this.articuloFormGroup.valid)
     {
       let articulo:articuloModel={
-        titulo:this.Titulo.value,
-        abstract:this.Abstract.value,
-        palabrasClave:this.PalabrasClave.value,
-        fecha:null,
-        idEdicion:null,
-        idAutor:null,
-        estado:"enviado"
+        Titulo:this.Titulo.value,
+        Abstract:this.Abstract.value,
+        PalabrasClave:this.PalabrasClave.value,
+        Fecha:null,
+        IdEdicion:null,
+        IdAutor:null,
+        Estado:"enviado"
       }
+
+      articulo.IdAutor=this.userService.getIdUser();
       
-      articulo.idAutor=this.userService.getIdUser2();
-      console.log("Id autor="+articulo.idAutor);
-      this.service.crearArticulo(articulo).subscribe(item=>{
+      //var ObjectID = require('mongodb').ObjectID;
+      //var objectId= new ObjectID();
+      //articulo.IdAutor=objectId.toHexString(this.userService.getIdUser());
+
+      // var ObjectID = require("bson-objectid");
+      //articulo.IdAutor=ObjectID.createFromHexString(this.userService.getIdUser());
+      
+      this.service.crearArticulo(articulo).subscribe(()=>{
         console.log("Guardando datos editados");
         this.router.navigate(["/autor/lista-de-articulos"]);
       });
     }else{
       alert("No se puede registrar el articulo, porfavor verifique la informacion!")
     }
-
+    
   }
 }
 

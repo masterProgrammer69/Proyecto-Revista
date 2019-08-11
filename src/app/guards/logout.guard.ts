@@ -11,14 +11,11 @@ export class LogoutGuard implements CanActivate {
 
   canActivate()
   {
-    console.log("guard:"+this.userService.getInformacionUser());
     if(this.userService.getInformacionUser()=="null" ||this.userService.getInformacionUser()==null)
-    {
-      console.log("guard:No esta logueado!")   
+    {  
       return true;
     }else
     {
-      console.log("guard:esta logueado!")
       this.router.navigate(["/autor/lista-de-articulos"]);
       return false;
     }

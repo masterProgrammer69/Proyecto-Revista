@@ -14,16 +14,11 @@ export class ArticleListComponent implements OnInit {
 
   listaArticulos:articuloModel[]=[];
 
-  constructor(private servicioUser:UserService,private servicioAutor:AutorService, /*private route:ActivatedRoute*/) { }
+  constructor(private servicioUser:UserService,private servicioAutor:AutorService) { }
     
   ngOnInit() {
-    //this.id=this.getUrlParametro("idAutor");
     this.getArticulosPorAutor();
   }
-
-  /*getUrlParametro = (idAutor:string)=>{
-    return this.route.snapshot.paramMap.get(idAutor);
-  }*/
 
   getArticulosPorAutor():void{
     let id=this.servicioUser.getIdUser();

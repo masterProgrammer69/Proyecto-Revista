@@ -35,6 +35,14 @@ export class UserService {
     }
   }
 
+  crearUsuario(user:userModel): Observable<userModel> {
+    return this.http.post<userModel>(`${url_base}Users`,user,{
+      headers:new HttpHeaders({
+        "content-type":"application/json"
+      })
+    });
+  }
+
   guardarToken(token) {
     localStorage.setItem("userTk", token);
   }
@@ -53,10 +61,9 @@ export class UserService {
       console.log("retorna null")
       return null;
     }
+
     return userInfo;
   }
-
-  
 
   getIdUser() {
     let userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -68,8 +75,4 @@ export class UserService {
     localStorage.removeItem("userTk");
   }
 
-  getIdUser2() {
-    let userInfo = localStorage.getItem("userInfo");
-    return userInfo["userId"];
-  }
 }

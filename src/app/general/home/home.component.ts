@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../servicios/user.service';
 import { Router } from '@angular/router';
+import sha256 from 'crypto-js/sha256';
 
 
 @Component({
@@ -19,13 +20,15 @@ export class HomeComponent implements OnInit {
   }
   
   loginUser():void{
-    this.servicio.loginUser(this.password, this.correo).subscribe(item =>{
+    let cryptedPassword= sha256(this.password).toString();
+    console.log("contraseña cifrada en  sha256:"+cryptedPassword);
+    this.servicio.loginUser(cryptedPassword, this.correo).subscribe(item =>{
       this.servicio.guardarToken(item.id);
       this.servicio.guardarInformacionUser(item);
       this.router.navigate(["/autor/lista-de-articulos"]);
       console.log("Datos correctos!!!")
     }, (err) => {
-      console.log("Datos inválidos!!!")
+      alert("Datos inválidos!!!")
     });
   }
 }

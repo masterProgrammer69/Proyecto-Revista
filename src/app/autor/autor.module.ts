@@ -13,7 +13,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     ArticleListComponent, 
     EditarArticuloComponent,
     RegistrarAutorComponent,
-    RegistrarArticuloComponent],
+    RegistrarArticuloComponent,
+    RegistrarAutorComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -23,6 +24,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     RegistrarArticuloComponent,
     ArticleListComponent,
     ListaResultadosComponent,
-    EditarArticuloComponent]
+    EditarArticuloComponent,
+    RegistrarAutorComponent]
 })
 export class AutorModule { }
