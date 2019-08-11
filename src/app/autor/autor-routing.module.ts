@@ -7,6 +7,7 @@ import { RegistrarAutorComponent } from './registrar-autor/registrar-autor.compo
 import { RegistrarArticuloComponent } from './registrar-articulo/registrar-articulo.component';
 import { ListaResultadosComponent } from './lista-resultados/lista-resultados.component';
 import { UrlInjectionGuard } from '../guards/url-injection.guard';
+import { EnvioVerificacionComponent } from './envio-verificacion/envio-verificacion.component';
 
 
 const routes: Routes = [
@@ -18,30 +19,39 @@ const routes: Routes = [
     path:"autor/registrar-articulo",
     component:RegistrarArticuloComponent,
     canActivate:[
-      UrlInjectionGuard
+      UrlInjectionGuard,
     ]
   },
   {
     path:"autor/lista-de-articulos",
     component:ArticleListComponent,
     canActivate:[
-      UrlInjectionGuard
+      UrlInjectionGuard,
     ]
   },
   {
     path:"autor/lista-de-resultados",
     component:ListaResultadosComponent,
     canActivate:[
-      UrlInjectionGuard
+      UrlInjectionGuard,
     ]
   },
   {
     path:"autor/editar-articulo/:idArticulo",
     component:EditarArticuloComponent,
     canActivate:[
-      UrlInjectionGuard
+      UrlInjectionGuard,
+      
     ]
-  }
+  },
+
+    {
+      path:"envio-verificacion",
+      component: EnvioVerificacionComponent
+    }
+
+
+
 ];
 
 @NgModule({

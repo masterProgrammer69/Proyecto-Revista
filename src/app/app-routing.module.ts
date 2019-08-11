@@ -4,6 +4,8 @@ import { GeneralRoutingModule } from './general/general-routing.module';
 import { AutorRoutingModule } from './autor/autor-routing.module';
 import { GeneralModule } from './general/general.module';
 import { AutorModule } from './autor/autor.module';
+import { EditorModule } from './editor/editor.module';
+import { EditorRoutingModule } from './editor/editor-routing.module';
 
 const routes: Routes = [
   
@@ -14,8 +16,11 @@ const routes: Routes = [
     
     AutorModule,
     AutorRoutingModule,
+
+    EditorModule,
+    EditorRoutingModule,
     GeneralModule,
-    GeneralRoutingModule
+    GeneralRoutingModule,
   ],
   exports: [RouterModule]
 })

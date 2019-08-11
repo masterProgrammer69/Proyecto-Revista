@@ -11,5 +11,6 @@ export interface userModel{
     afiliacion:string;
     nivelDeFormacion:string;
     rol:string;
+    emailVerified: boolean,
     //user:userModel;
 }

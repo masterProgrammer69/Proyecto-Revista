@@ -87,21 +87,22 @@ export class RegistrarAutorComponent implements OnInit {
         pais:"string",//this.pais.value,
         nivelDeFormacion:"string",//this.formacion.value,
         rol:"autor",
+        emailVerified: false,
         afiliacion:"string",
         id:null
       }
 
       this.service.crearUsuario(autor).subscribe(()=>{
         this.service.loginUser(cryptedPassword, this.email.value).subscribe(item =>{
-          this.service.guardarToken(item.id);
-          this.service.guardarInformacionUser(item);
-          this.router.navigate(["/autor/lista-de-articulos"]);
+          //this.service.guardarToken(item.id);
+          //this.service.guardarInformacionUser(item);
+          this.router.navigate(["envio-verificacion"]);
         }, (err) => {
         });
-        this.router.navigate(["/autor/lista-de-articulos"]);
+        this.router.navigate(["home"]);
       });
     }else{
-      alert("No se puede registrar el articulo, porfavor verifique la informacion!")
+      alert("No se puede registrar el usuario, la informacion esta incompleta o erronea!")
     }
   }
 

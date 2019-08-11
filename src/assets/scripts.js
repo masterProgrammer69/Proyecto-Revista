@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.FormSelect.init(elems,{});
   });
 
+
   // Or with jQuery
 
   $(document).ready(function(){
@@ -16,6 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   $(document).ready(function() {
     $('input#input_text, textarea#textarea2').characterCounter();
+  });
+
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
   });
  
           

@@ -7,6 +7,9 @@ import { RegistrarArticuloComponent } from './registrar-articulo/registrar-artic
 import { ListaResultadosComponent } from './lista-resultados/lista-resultados.component';
 import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
+import { EnvioVerificacionComponent } from './envio-verificacion/envio-verificacion.component';
+import { EmailNoVerificadoComponent } from './email-no-verificado/email-no-verificado.component';
+import { EmailVerificadoComponent } from './email-verificado/email-verificado.component';
 
 @NgModule({
   declarations: [ListaResultadosComponent,
@@ -14,7 +17,10 @@ import {ReactiveFormsModule} from '@angular/forms';
     EditarArticuloComponent,
     RegistrarAutorComponent,
     RegistrarArticuloComponent,
-    RegistrarAutorComponent],
+    RegistrarAutorComponent,
+    EnvioVerificacionComponent,
+    EmailNoVerificadoComponent,
+    EmailVerificadoComponent],
   imports: [
     CommonModule,
     FormsModule,

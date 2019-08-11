@@ -65,14 +65,26 @@ export class UserService {
     return userInfo;
   }
 
+  enviarEmail(Usuario){
+
+    
+  }
+
   getIdUser() {
     let userInfo = JSON.parse(localStorage.getItem("userInfo"));
     return userInfo["userId"];
+  }
+
+  getRol(){
+    let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    return userInfo["rol"];
+
   }
 
   logOutUser() {
     localStorage.removeItem("userInfo");
     localStorage.removeItem("userTk");
   }
+  
 
 }

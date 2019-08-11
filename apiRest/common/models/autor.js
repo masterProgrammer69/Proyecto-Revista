@@ -4,7 +4,7 @@ module.exports = function(Autor) {
     Autor.sendEmail=(message,subject,emailAddresses,cb)=>{
         Autor.app.models.Email.send({
             to:emailAddresses,
-            from:"James Bond -007",
+            from:"Revista vector",
             subject:subject,
             text:message,
             html:message,
