@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { articuloModel } from 'src/app/models/articulo.model';
-import { AutorService } from 'src/app/servicios/articulo.service';
+import { EditorService } from 'src/app/servicios/editor.service';
+import { edicionModel } from 'src/app/models/edicion.model';
 
 @Component({
   selector: 'app-crear-edicion',
@@ -12,6 +12,7 @@ import { AutorService } from 'src/app/servicios/articulo.service';
 })
 export class CrearEdicionComponent implements OnInit {
   edicionFormGroup: FormGroup;
+  edicionActiva:edicionModel;
 
   formGroupCreator(): FormGroup {
     return new FormGroup({
@@ -34,28 +35,49 @@ export class CrearEdicionComponent implements OnInit {
     return this.edicionFormGroup.get('descripcion');
   }
 
-  constructor(private userService: UserService, private service: AutorService, private router: Router) {
+  constructor(private userService: UserService, private service: EditorService, private router: Router) {
     this.edicionFormGroup = this.formGroupCreator();
   }
 
   ngOnInit() {
   }
 
-  guardarArticulo(): void {
-    if (this.edicionFormGroup.valid) {
 
 
-    }
 
+  modificaEdicionActiva():void {
+    this.service.getEdicionesActiva().subscribe(articulos =>{
+      this.edicionActiva=articulos[0];
+      alert("el dato "+this.edicionActiva.id);
+    });
+
+    this.service.actualizarEdicion(this.edicionActiva).subscribe(item => {
+      alert("Se actualizo la edicion");
+    });
   }
 
-  prueba():void{
+
+  guardarEdicion(): void {
     if (this.edicionFormGroup.valid) {
-     alert("Funciono")
+      let edicion: edicionModel = {
+        Nombre: this.Nombre.value,
+        Volumen: this.Volumen.value,
+        Descripcion: this.Descripcion.value,
+        FechaLimite: null,
+        EstaActiva: true,
+        IdEditor: this.userService.getIdUser(),
+      }
+
+
+      this.service.crearEdicion(edicion).subscribe(() => {
+        alert("Se han guardado los datos correctamente")
+        this.router.navigate(["editor"]);
+      });
+
+      this.getEdicionActiva();
     }
-    else{
-      alert("Error")
+    else {
+      alert("No se puede registrar el articulo, porfavor verifique la informacion!")
     }
   }
 }
-

@@ -19,8 +19,9 @@
       "type": "string"
     },
     "FechaLimite": {
-      "type": "date",
-      "required": true
+      "type": "date"
+
+      
     },
     "EstaActiva": {
       "type": "boolean",

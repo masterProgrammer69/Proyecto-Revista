@@ -53,7 +53,7 @@ export class RegistrarArticuloComponent implements OnInit {
         Abstract:this.Abstract.value,
         PalabrasClave:this.PalabrasClave.value,
         Fecha:null,
-        IdEdicion:null,
+        IdEdicion:"a",
         IdAutor:null,
         Estado:"enviado"
       }
@@ -68,8 +68,8 @@ export class RegistrarArticuloComponent implements OnInit {
       //articulo.IdAutor=ObjectID.createFromHexString(this.userService.getIdUser());
       
       this.service.crearArticulo(articulo).subscribe(()=>{
-        console.log("Guardando datos editados");
-        this.router.navigate(["/autor/lista-de-articulos"]);
+        alert("Se han guardado los datos")
+        this.router.navigate(["autor/lista-de-articulos"]);
       });
     }else{
       alert("No se puede registrar el articulo, porfavor verifique la informacion!")

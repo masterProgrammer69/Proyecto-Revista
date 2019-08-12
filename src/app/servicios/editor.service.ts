@@ -30,6 +30,16 @@ export class EditorService {
     return this.http.get<edicionModel>(`${base_url}Ediciones?access_token=${this.token}&filter[where][EstaActiva]=true`);
   }
 
+  //Actualizar edicion
+  actualizarEdicion(edicion:edicionModel): Observable<edicionModel> {
+    return this.http.put<edicionModel>(`${base_url}Ediciones?access_token=${this.token}`,edicion,
+    {
+      headers:new HttpHeaders({
+        "content-type":"application/json"
+      })
+    });
+  }
+
   //Crear edicion
   crearEdicion(edicion:edicionModel): Observable<edicionModel> {
     return this.http.post<edicionModel>(`${base_url}Ediciones?access_token=${this.token}`,edicion,{

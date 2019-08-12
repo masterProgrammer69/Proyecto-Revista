@@ -24,11 +24,12 @@ export class HomeEditorComponent implements OnInit {
   
 
   getEdicionActiva():void{
-    this.servicio.getEdicionesActiva().subscribe(articulos =>{this.edicionActiva=articulos[0];
+    this.servicio.getEdicionesActiva().subscribe(articulos =>{
+      this.edicionActiva=articulos[0];
     });
   }
 
-  //esto esta mal, no usar por el momento
+  //esto esta mal, no usar por el momento[]
   getArticulosEdicion():void{
     this.servicio2.getArticulosPorEdicion("2").subscribe(articulos =>{this.listaArticulos=articulos;
     });
