@@ -28,10 +28,12 @@
       "default": "enviado"
     },
     "IdAutor": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "IdEdicion": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

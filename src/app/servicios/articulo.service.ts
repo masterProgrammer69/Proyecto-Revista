@@ -10,6 +10,7 @@ const url_base: string = 'http://localhost:3000/api/'
 })
 export class AutorService {
   token:string;
+  idRevistaActiva:string;
 
   constructor(private http: HttpClient,private service:UserService) { 
     this.token=this.service.getToken();
@@ -21,6 +22,10 @@ export class AutorService {
 
   getArticulosPorAutor(idAutor:string): Observable<articuloModel[]> {
     return this.http.get<articuloModel[]>(`${url_base}articulos?access_token=${this.token}&filter[where][IdAutor]=${idAutor}`);
+  }
+
+  getArticulosPorEdicion(idEdicion:string): Observable<articuloModel[]> {
+    return this.http.get<articuloModel[]>(`${url_base}articulos?access_token=${this.token}&filter[where][IdEdicion]=${idEdicion}`);
   }
 
   buscarArticulo(idArticulo:string): Observable<articuloModel> {

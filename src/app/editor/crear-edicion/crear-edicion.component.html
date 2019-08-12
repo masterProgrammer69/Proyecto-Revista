@@ -1,46 +1,70 @@
-<form >
-        <body>
-            <br><br>
-            <div class="container row">
-                <br>
-                <div class="col s12">
-                    <h4>Formulario para registrar una nueva edicion:</h4>
-                    <fieldset>
-                        <legend>
-                            <h6>Informacion de la edicion:</h6>
-                        </legend>  
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input formControlName="titulo" id="titulo" type="text" class="validate">
-                                <label for="titulo">Titulo</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <textarea formControlName="volumen" id="volumen" class="materialize-textarea"></textarea>
-                                <label for="volumen">Volumen</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input formControlName="descripcion" id="descripcion" type="text" class="validate">
-                                <label for="descripcion">Descripcion</label>
+<form [formGroup]="edicionFormGroup" (ngSubmit)="prueba()">
 
-                                
-                            </div>
-                            <div class="col s6">
-                                    <input type="text" class="datepicker">
-                            </div>
-                        </div>
-                    </fieldset>
-                    <br><br>
+    <body>
+        <br><br>
+        <div class="container row">
+            <br>
+            <div class="col s12">
+                <h4>Formulario para registrar edicion:</h4>
+                <fieldset>
+                    <legend>
+                        <h6>Informacion de la edicion:</h6>
+                    </legend>
+
+
                     <div class="row">
-                        <div class="input-field col s2">
-                            <button class="btn green" type="submit">
-                                Guardar
-                            </button>
+                        <div class="input-field col s6">
+                            <input formControlName="nombre" id="nombre" type="text" class="validate">
+                            <label for="nombre">Nombre</label>
+                            <div class="errorContainer" *ngIf="(Nombre.touched ||Nombre.dirty) && Nombre.invalid">
+                                <div class="card-panel red">
+                                    Este campo es requerido!
+                                </div>
+                            </div>
                         </div>
+
+
+                        <div class="input-field col s6">
+                            <input formControlName="volumen" id="volumen" type="text" class="validate">
+                            <label for="volumen">Volumen</label>
+                            <div class="errorContainer" *ngIf="(Volumen.touched ||Volumen.dirty) && Volumen.invalid">
+                                <div class="card-panel red">
+                                    Este campo es requerido!
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input formControlName="descripcion" id="descripcion" type="text" class="validate">
+                            <label for="descripcion">Descripcion</label>
+                            <div class="errorContainer"
+                                *ngIf="(Descripcion.touched ||Descripcion.dirty) && Descripcion.invalid">
+                                <div class="card-panel red">
+                                    Este campo es requerido!
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="input-field col s6">
+                            <input type="text" id="fecha" class="datepicker">
+                            <label for="descripcion">Fecha</label>
+                        </div>
+
+                    </div>
+                </fieldset>
+                <br><br>
+                <div class="row">
+                    <div class="input-field col s2">
+                        <button class="btn green" type="submit">
+                            Guardar
+                        </button>
                     </div>
                 </div>
             </div>
-            <br><br>
-        </body>
-    </form>
+        </div>
+        <br><br>
+    </body>
+</form>
