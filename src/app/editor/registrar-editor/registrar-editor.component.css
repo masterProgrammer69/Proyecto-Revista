@@ -1,0 +1,31 @@
+label,option{
+    color: black;
+}
+
+.email{  
+    color:salmon;
+}
+
+.row{      
+    border-radius: 5px;
+    background-color:rgba(255, 255, 255,0.7);
+}
+
+.input-field{
+    background-color:rgba(255, 255, 255,0);
+}
+
+h4{
+    color:black;
+    font-weight:bold;
+}
+
+body{
+    background-image:url("/assets/img/teclado.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+.telefono{
+    color: black;
+}

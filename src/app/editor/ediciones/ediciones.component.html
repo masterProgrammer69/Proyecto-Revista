@@ -1,124 +1,28 @@
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+<a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a>
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer">
+<div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h5>Titulo</h5>
+        <h6>Titulo de prueba 1</h6>
 
-    <div *ngIf="mostrarEvaluadores; then thenBlock else elseBlock"></div>
-    <ng-template #thenBlock>
-        <div class="modal-content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Item Name</th>
-                        <th>Item Price</th>
-                    </tr>
-                </thead>
+        <h5>Autor</h5>
+        <h6>Autor de prueba 1</h6>
 
-                <tbody>
-                    <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>
-                            <a class="waves-effect waves-light btn-small orange "
-                                (click)="asignaEvaluadorTemp()">Asignar</a>
-                        </td>
+        <h5>Palabras clave</h5>
+        <h6>Palabras clave de prueba 1</h6>
 
+        <h5>Revista</h5>
+        <h6>Revista 1</h6>
 
-                    </tr>
-                    <tr>
-                        <td>Alan</td>
-                        <td>Jellybean</td>
-                        <td>
-                            <form action="#">
-                                <p>
-                                    <label>
-                                        <input type="checkbox" />
-                                        <span>Asignar</span>
-                                    </label>
-                                </p>
-                            </form>
-                        </td>
+        <h5>Evaluadores</h5>
+        <h6>A,B,C</h6>
 
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
+    </div>
 
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="modal-footer">
-            <a class="waves-effect waves-light btn-small red " (click)="desactivaListadoEvaluadores()">Salir</a>
-            <a class="waves-effect waves-light btn-small green" (click)="asignarEvaluadores()">Asignar evaluadores</a>
-
-        </div>
-
-    </ng-template>
-    <ng-template #elseBlock>
-        <div class="modal-content">
-            <h5>Titulo</h5>
-            <h6>Titulo de prueba 1</h6>
-
-            <h5>Autor</h5>
-            <h6>Autor de prueba 1</h6>
-
-            <h5>Palabras clave</h5>
-            <h6>Palabras clave de prueba 1</h6>
-
-            <h5>Revista</h5>
-            <h6>Revista 1</h6>
-
-            <h5>Evaluadores</h5>
-            <h6>A,B,C</h6>
-
-        </div>
-
-        <div class="modal-footer">
-            <a class="waves-effect waves-light btn-small blue" (click)="activarListadoEvaluadores()">Asignar
-                evaluadores</a>
-            <a class="waves-effect waves-light btn-small green" (click)="descargarArchivo()">Descargar</a>
-        </div>
-
-    </ng-template>
-
+    <div class="modal-footer">
+        <a class="waves-effect waves-light btn-small green" (click)="descargarArchivo()">Descargar</a>
+    </div>
 </div>
 
 <div class="center">

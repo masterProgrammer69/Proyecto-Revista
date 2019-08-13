@@ -26,5 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
   $(document).ready(function(){
     $('.datepicker').datepicker();
   });
+  $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+  $(document).ready(function(){
+    $('.tabs').tabs();
+  });
+       
  
           

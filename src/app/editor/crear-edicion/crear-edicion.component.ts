@@ -42,9 +42,6 @@ export class CrearEdicionComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
-
   modificaEdicionActiva():void {
     this.service.getEdicionesActiva().subscribe(articulos =>{
       this.edicionActiva=articulos[0];
@@ -68,13 +65,12 @@ export class CrearEdicionComponent implements OnInit {
         IdEditor: this.userService.getIdUser(),
       }
 
-
+      //Agregar metodo que asigne solo valor true a este
       this.service.crearEdicion(edicion).subscribe(() => {
         alert("Se han guardado los datos correctamente")
         this.router.navigate(["editor"]);
       });
 
-      this.getEdicionActiva();
     }
     else {
       alert("No se puede registrar el articulo, porfavor verifique la informacion!")

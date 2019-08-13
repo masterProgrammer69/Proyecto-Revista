@@ -12,29 +12,79 @@ import { AutorService } from 'src/app/servicios/articulo.service';
 export class HomeEditorComponent implements OnInit {
 
 
-  edicionActiva:edicionModel;
-  listaArticulos:articuloModel[]=[];
+  edicionActiva: edicionModel = {
+    id: null,
+    Nombre: null,
+    Volumen: null,
+    Descripcion: null,
+    FechaLimite: null,
+    EstaActiva: null,
+    IdEditor: null,
+  };
+  listaArticulos: articuloModel[] = [];
 
-  constructor(private servicio:EditorService,private servicio2:AutorService) { }
+  articuloTemporal: articuloModel = {
+    id:null,
+    Titulo:null,
+    Abstract:null,
+    PalabrasClave:null,
+    Fecha:null,
+    Estado:null,
+    IdAutor:null,
+    IdEdicion:null,
+  };
+
+
+
+  mostrarEvaluadores = false;
+
+
+  constructor(private ediServicio: EditorService, private autServicio: AutorService) { }
 
   ngOnInit() {
     this.getEdicionActiva();
-    this.getArticulosEdicion();
-  }
-  
 
-  getEdicionActiva():void{
-    this.servicio.getEdicionesActiva().subscribe(articulos =>{
-      this.edicionActiva=articulos[0];
+  }
+
+
+  getEdicionActiva(): void {
+    this.ediServicio.getEdicionesActiva().subscribe(ediciones => {
+      this.edicionActiva = ediciones[0];
+      this.getListaArticulos();
     });
   }
 
-  //esto esta mal, no usar por el momento[]
-  getArticulosEdicion():void{
-    this.servicio2.getArticulosPorEdicion("2").subscribe(articulos =>{this.listaArticulos=articulos;
+  getListaArticulos(): void {
+    this.autServicio.getArticulosPorEdicion(this.edicionActiva.id).subscribe(articulos => {
+      this.listaArticulos = articulos;
     });
+
+  }
+  descargarArchivo(idArchivo: string): void {
+    alert("Se va a descargar el archivo")
   }
 
+  asignaInformacionModal(idArchivo: string): void {
+    this.autServicio.buscarArticulo(idArchivo).subscribe(articulo =>{this.articuloTemporal=articulo
+      console.log(articulo)
+    });
+    
+  }
 
+  activarListadoEvaluadores(): void {
+    this.mostrarEvaluadores = !this.mostrarEvaluadores;
+  }
+
+  desactivaListadoEvaluadores(): void {
+    this.mostrarEvaluadores = !this.mostrarEvaluadores;
+  }
+
+  asignarEvaluadores(idEvaluadores: string[]): void {
+    alert("Se van a asignar estos evaluadores")
+  }
+
+  asignaEvaluadorTemp(idEvaluador: string): void {
+    alert("Se asigno evaluador a")
+  }
 
 }

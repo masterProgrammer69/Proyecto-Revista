@@ -14,7 +14,7 @@ const base_url: string = 'http://localhost:3000/api/'
 export class EditorService {
 
   token:string;
-  idRevistaActiva:string;
+  RevistaActiva:edicionModel;
 
   constructor(private http: HttpClient,private service:UserService) { 
     this.token=this.service.getToken();
@@ -26,10 +26,11 @@ export class EditorService {
   }
 
   //edicion activa
-  getEdicionesActiva(): Observable<edicionModel> {
-    return this.http.get<edicionModel>(`${base_url}Ediciones?access_token=${this.token}&filter[where][EstaActiva]=true`);
+  getEdicionesActiva(): Observable<edicionModel[]> {
+    return this.http.get<edicionModel[]>(`${base_url}Ediciones?access_token=${this.token}&filter[where][EstaActiva]=true`);
   }
 
+ 
   //Actualizar edicion
   actualizarEdicion(edicion:edicionModel): Observable<edicionModel> {
     return this.http.put<edicionModel>(`${base_url}Ediciones?access_token=${this.token}`,edicion,
