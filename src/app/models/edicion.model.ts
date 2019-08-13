@@ -4,6 +4,6 @@ export interface edicionModel{
     Volumen:number;
     Descripcion:string;
     FechaLimite:Date;
-    EstaActiva:boolean;
+    EstaActiva:string;
     IdEditor:string;
 }

@@ -24,20 +24,12 @@ export class EditorService {
   getAllEdiciones(): Observable<edicionModel[]> {
     return this.http.get<edicionModel[]>(`${base_url}Ediciones`); //consigue todos los articulos
   }
-
-  //edicion activa
-  getEdicionesActiva(): Observable<edicionModel> {
-    return this.http.get<edicionModel>(`${base_url}Ediciones?access_token=${this.token}&filter[where][EstaActiva]=true`);
-  }
-
-  //Actualizar edicion
-  actualizarEdicion(edicion:edicionModel): Observable<edicionModel> {
-    return this.http.put<edicionModel>(`${base_url}Ediciones?access_token=${this.token}`,edicion,
-    {
-      headers:new HttpHeaders({
-        "content-type":"application/json"
-      })
-    });
+  
+  getEdicionActiva(): Observable<edicionModel> {
+    var estado:string="true";
+    var algo=this.http.get<edicionModel>(`${base_url}Ediciones/findOne?filter[where][EstaActiva]=${estado}&access_token=${this.token}`);
+    console.log("servicio:"+algo)
+    return algo;
   }
 
   //Crear edicion
@@ -49,5 +41,24 @@ export class EditorService {
     });
   }
 
+
+  actualizarEdicion(edicion:edicionModel): Observable<edicionModel> {
+    return this.http.put<edicionModel>(`${base_url}Ediciones?access_token=${this.token}`,edicion,
+    {
+      headers:new HttpHeaders({
+        "content-type":"application/json"
+      })
+    });
+  }
+
+  desactivarEdicion(edicionActiva:edicionModel): Observable<edicionModel> {
+    edicionActiva.EstaActiva="false";
+    return this.http.put<edicionModel>(`${base_url}Ediciones?access_token=${this.token}`,edicionActiva,
+    {
+      headers:new HttpHeaders({
+        "content-type":"application/json"
+      })
+    });
+  }
 
 }

@@ -20,8 +20,8 @@ export class AutorService {
     return this.http.get<articuloModel[]>(`${url_base}Articulos`); //consigue todos los articulos
   }
 
-  getArticulosPorAutor(idAutor:string): Observable<articuloModel[]> {
-    return this.http.get<articuloModel[]>(`${url_base}articulos?access_token=${this.token}&filter[where][IdAutor]=${idAutor}`);
+  getArticulosPorAutor(Autor:string): Observable<articuloModel[]> {
+    return this.http.get<articuloModel[]>(`${url_base}articulos?access_token=${this.token}&filter[where][Autor]=${Autor}`);
   }
 
   getArticulosPorEdicion(idEdicion:string): Observable<articuloModel[]> {
@@ -52,4 +52,7 @@ export class AutorService {
   deleteProduct(articuloId: String): Observable<articuloModel> {
     return this.http.delete<articuloModel>(`${url_base}articulos/${articuloId}`);
   };
+
+  
+
 }

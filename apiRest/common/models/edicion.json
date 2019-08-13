@@ -24,7 +24,7 @@
       
     },
     "EstaActiva": {
-      "type": "boolean",
+      "type": "string",
       "required": true,
       "default": true
     },
@@ -36,6 +36,12 @@
   "validations": [],
   "relations": {},
   "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
     {
       "accessType": "*",
       "principalType": "ROLE",

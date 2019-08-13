@@ -12,5 +12,5 @@ export interface userModel{
     nivelDeFormacion:string;
     rol:string;
     emailVerified: boolean,
-    //user:userModel;
+    user:userModel;
 }

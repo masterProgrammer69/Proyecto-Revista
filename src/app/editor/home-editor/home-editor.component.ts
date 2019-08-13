@@ -12,27 +12,29 @@ import { AutorService } from 'src/app/servicios/articulo.service';
 export class HomeEditorComponent implements OnInit {
 
 
-  edicionActiva:edicionModel;
+  edicionActiva: edicionModel = {
+    Nombre: null,
+    Volumen: null,
+    Descripcion: null,
+    FechaLimite: null,
+    EstaActiva:null,
+    IdEditor: null,
+  }
   listaArticulos:articuloModel[]=[];
 
   constructor(private servicio:EditorService,private servicio2:AutorService) { }
 
   ngOnInit() {
     this.getEdicionActiva();
-    this.getArticulosEdicion();
   }
   
 
   getEdicionActiva():void{
-    this.servicio.getEdicionesActiva().subscribe(articulos =>{
-      this.edicionActiva=articulos[0];
+    this.servicio.getEdicionActiva().subscribe(edicion =>{
+      this.edicionActiva=edicion;
+      alert(this.edicionActiva.EstaActiva)
     });
-  }
-
-  //esto esta mal, no usar por el momento[]
-  getArticulosEdicion():void{
-    this.servicio2.getArticulosPorEdicion("2").subscribe(articulos =>{this.listaArticulos=articulos;
-    });
+    
   }
 
 

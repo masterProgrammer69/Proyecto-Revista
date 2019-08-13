@@ -5,6 +5,6 @@ export interface articuloModel{
     PalabrasClave:string;
     Fecha:Date;
     Estado:string;
-    IdAutor:string;
+    Autor:string;
     IdEdicion:string;
 }

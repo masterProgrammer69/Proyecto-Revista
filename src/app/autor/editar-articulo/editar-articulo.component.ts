@@ -16,7 +16,7 @@ export class EditarArticuloComponent implements OnInit {
     PalabrasClave:null,
     Fecha:null,
     IdEdicion:null,
-    IdAutor:null,
+    Autor:null,
     Estado:null
   };
   id=null;

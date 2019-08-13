@@ -1,34 +1,30 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivate, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { UserService } from '../servicios/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LogoutGuard implements CanActivate {
-  
+export class EditorGuard implements  CanActivate {
   constructor(private userService:UserService,private router:Router){}
 
   canActivate()
   {
-    if(this.userService.getInformacionUser()=="null" ||this.userService.getInformacionUser()==null)
-    {  
+    if(this.userService.getRol()=="editor")
+    {
       return true;
-    }else
+    }
+    else
     {
       if(this.userService.getRol()=="autor")
       {
         this.router.navigate(["/autor/lista-de-articulos"]);
       }
-      else if(this.userService.getRol()=="editor")
-      {
-        this.router.navigate(["/editor"]);
-      }
-      else if(this.userService.getRol()=="evaluador")
+      else
       {
         this.router.navigate(["/evaluador"]);
-      }  
-      return false;
+      }
     }
-  }
+  } 
 }

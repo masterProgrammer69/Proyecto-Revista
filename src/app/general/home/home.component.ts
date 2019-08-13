@@ -24,11 +24,23 @@ export class HomeComponent implements OnInit {
     console.log("contraseña cifrada en  sha256:"+cryptedPassword);
     this.servicio.loginUser(cryptedPassword, this.correo).subscribe(item =>{
       this.servicio.guardarToken(item.id);
+      this.servicio.guardarRol(item.user.rol);
       this.servicio.guardarInformacionUser(item);
-      this.router.navigate(["/autor/lista-de-articulos"]);
-      console.log("Datos correctos!!!")
+      if(this.servicio.getRol()=="autor")
+      {
+        this.router.navigate(["/autor/lista-de-articulos"]);
+      } 
+      else if(this.servicio.getRol()=="editor")
+      {
+        this.router.navigate(["/editor"]);
+      } 
+      else if(this.servicio.getRol()=="evaluador")
+      {
+        alert("Falta implementar esto")
+        //this.router.navigate(["/"]);
+      } 
     }, (err) => {
-      alert("Datos inválidos!!!")
+      alert("El Correo o el Email son incorrectos, porfavor verifiquelos!")
     });
   }
 }

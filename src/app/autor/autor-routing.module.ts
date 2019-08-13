@@ -8,18 +8,24 @@ import { RegistrarArticuloComponent } from './registrar-articulo/registrar-artic
 import { ListaResultadosComponent } from './lista-resultados/lista-resultados.component';
 import { UrlInjectionGuard } from '../guards/url-injection.guard';
 import { EnvioVerificacionComponent } from './envio-verificacion/envio-verificacion.component';
+import { LogoutGuard } from '../guards/logout.guard';
+import { AutorGuard } from '../guards/autor.guard';
 
 
 const routes: Routes = [
   {
     path:"autor/registrar-autor",
-    component:RegistrarAutorComponent
+    component:RegistrarAutorComponent,
+    canActivate:[
+      LogoutGuard
+    ]
   },
   {
     path:"autor/registrar-articulo",
     component:RegistrarArticuloComponent,
     canActivate:[
       UrlInjectionGuard,
+      AutorGuard
     ]
   },
   {
@@ -27,6 +33,7 @@ const routes: Routes = [
     component:ArticleListComponent,
     canActivate:[
       UrlInjectionGuard,
+      AutorGuard
     ]
   },
   {
@@ -34,6 +41,7 @@ const routes: Routes = [
     component:ListaResultadosComponent,
     canActivate:[
       UrlInjectionGuard,
+      AutorGuard
     ]
   },
   {
@@ -41,7 +49,7 @@ const routes: Routes = [
     component:EditarArticuloComponent,
     canActivate:[
       UrlInjectionGuard,
-      
+      AutorGuard
     ]
   },
 

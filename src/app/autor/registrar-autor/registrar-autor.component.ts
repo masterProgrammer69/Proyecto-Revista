@@ -89,13 +89,12 @@ export class RegistrarAutorComponent implements OnInit {
         rol:"autor",
         emailVerified: false,
         afiliacion:"string",
-        id:null
+        id:null,
+        user:null
       }
 
       this.service.crearUsuario(autor).subscribe(()=>{
         this.service.loginUser(cryptedPassword, this.email.value).subscribe(item =>{
-          //this.service.guardarToken(item.id);
-          //this.service.guardarInformacionUser(item);
           this.router.navigate(["envio-verificacion"]);
         }, (err) => {
         });

@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-const url_base: string = 'http://localhost:3000/api/'
 import { userModel } from '../models/user.model';
-import { isNullOrUndefined } from 'util';
 import { retry, catchError } from 'rxjs/operators';
+
+const url_base: string = 'http://localhost:3000/api/'
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -47,8 +49,16 @@ export class UserService {
     localStorage.setItem("userTk", token);
   }
 
+  guardarRol(rol) {
+    localStorage.setItem("userRol", rol);
+  }
+
   getToken() {
     return localStorage.getItem("userTk");
+  }
+
+  getRol() {
+    return localStorage.getItem("userRol");
   }
 
   guardarInformacionUser(user: userModel): void {
@@ -57,11 +67,10 @@ export class UserService {
 
   getInformacionUser() {
     let userInfo = (JSON.stringify(localStorage.getItem("userInfo")));
-    if (userInfo=="null") {
-      console.log("retorna null")
+    if (userInfo=="null") 
+    {
       return null;
     }
-
     return userInfo;
   }
 
@@ -72,13 +81,7 @@ export class UserService {
 
   getIdUser() {
     let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    return userInfo["userId"];
-  }
-
-  getRol(){
-    let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    return userInfo["rol"];
-
+    return userInfo["id"];
   }
 
   logOutUser() {

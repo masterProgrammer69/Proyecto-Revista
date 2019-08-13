@@ -54,11 +54,10 @@ export class RegistrarArticuloComponent implements OnInit {
         PalabrasClave:this.PalabrasClave.value,
         Fecha:null,
         IdEdicion:"a",
-        IdAutor:null,
+        Autor:this.userService.getIdUser(),
         Estado:"enviado"
       }
 
-      articulo.IdAutor=this.userService.getIdUser();
       
       //var ObjectID = require('mongodb').ObjectID;
       //var objectId= new ObjectID();
