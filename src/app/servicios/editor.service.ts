@@ -32,6 +32,13 @@ export class EditorService {
     return algo;
   }
 
+  //get ediciones que no estan activas
+    getEdicionesNoActivas(): Observable<edicionModel[]> {
+      var estado:string="false";
+      return this.http.get<edicionModel[]>(`${base_url}Ediciones?access_token=${this.token}&filter[where][EstaActiva]=${estado}`);
+    }
+
+
   //Crear edicion
   crearEdicion(edicion:edicionModel): Observable<edicionModel> {
     return this.http.post<edicionModel>(`${base_url}Ediciones?access_token=${this.token}`,edicion,{

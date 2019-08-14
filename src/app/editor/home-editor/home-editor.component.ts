@@ -68,9 +68,6 @@ export class HomeEditorComponent implements OnInit {
     this.autServicio.buscarArticulo(idArticulo).subscribe(articulo => {
       this.articuloTemporal = articulo;
     });
-
-
-
   }
 
 
