@@ -6,6 +6,8 @@ import { GeneralModule } from './general/general.module';
 import { AutorModule } from './autor/autor.module';
 import { EditorModule } from './editor/editor.module';
 import { EditorRoutingModule } from './editor/editor-routing.module';
+import { EvaluadorRoutingModule } from './evaluador/evaluador-routing.module';
+import { EvaluadorModule } from './evaluador/evaluador.module';
 
 const routes: Routes = [
   
@@ -16,6 +18,8 @@ const routes: Routes = [
     
     AutorModule,
     AutorRoutingModule,
+    EvaluadorModule,
+    EvaluadorRoutingModule,
 
     EditorModule,
     EditorRoutingModule,

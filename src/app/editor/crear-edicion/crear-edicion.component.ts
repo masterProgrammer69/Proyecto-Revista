@@ -50,10 +50,6 @@ export class CrearEdicionComponent implements OnInit {
   
   ngOnInit() {
   }
-  
-  
-  
-  
   modificaEdicionActiva():void {
     this.service.getEdicionActiva().subscribe(articulo =>{
       this.edicionActiva=articulo;
@@ -76,8 +72,6 @@ export class CrearEdicionComponent implements OnInit {
         EstaActiva: "true",
         IdEditor: this.userService.getIdUser(),
       }
-      
-      
       
       //Conseguimos la edicion activa
       this.service.getEdicionActiva().subscribe(edicio =>{

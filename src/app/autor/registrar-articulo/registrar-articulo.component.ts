@@ -4,6 +4,7 @@ import { articuloModel } from 'src/app/models/articulo.model';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { EditorService } from 'src/app/servicios/editor.service';
 
 @Component({
   selector: 'app-registrar-articulo',
@@ -38,7 +39,7 @@ export class RegistrarArticuloComponent implements OnInit {
     return this.articuloFormGroup.get('palabrasClave');
   }
   
-  constructor(private userService:UserService,private service:AutorService,private router:Router) {
+  constructor(private userService:UserService,private service:AutorService,private ediService:EditorService,private router:Router) {
     this.articuloFormGroup=this.formGroupCreator();
   }
   
@@ -53,18 +54,16 @@ export class RegistrarArticuloComponent implements OnInit {
         Abstract:this.Abstract.value,
         PalabrasClave:this.PalabrasClave.value,
         Fecha:null,
-        IdEdicion:"a",
-        Autor:this.userService.getIdUser(),
+        IdEdicion:null,
+        Autor:"a",
         Estado:"enviado"
       }
 
-      
-      //var ObjectID = require('mongodb').ObjectID;
-      //var objectId= new ObjectID();
-      //articulo.IdAutor=objectId.toHexString(this.userService.getIdUser());
 
-      // var ObjectID = require("bson-objectid");
-      //articulo.IdAutor=ObjectID.createFromHexString(this.userService.getIdUser());
+      articulo.Autor=this.userService.getIdUser();
+
+
+      alert(articulo.IdEdicion)
       
       this.service.crearArticulo(articulo).subscribe(()=>{
         alert("Se han guardado los datos")

@@ -25,6 +25,7 @@ export class AutorService {
   }
 
   getArticulosPorEdicion(idEdicion:string): Observable<articuloModel[]> {
+    console.log(`${url_base}articulos?access_token=${this.token}&filter[where][IdEdicion]=${idEdicion}`);
     return this.http.get<articuloModel[]>(`${url_base}articulos?access_token=${this.token}&filter[where][IdEdicion]=${idEdicion}`);
   }
 

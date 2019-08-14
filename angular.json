@@ -30,6 +30,7 @@
               "node_modules/materialize-css/dist/css/materialize.css"
             ],
             "scripts": [
+              "src/assets/jquery-2.1.1.min.js",
               "node_modules/materialize-css/dist/js/materialize.js",
               "src/assets/init.js",
               "src/assets/scripts.js"
@@ -99,7 +100,8 @@
             "scripts": 
             ["node_modules/materialize-css/dist/js/materialize.js",
               "src/assets/init.js",
-              "src/assets/scripts.js"
+              "src/assets/scripts.js",
+              "src/assets/jquery-2.1.1.min.js"
             ]
           }
         },

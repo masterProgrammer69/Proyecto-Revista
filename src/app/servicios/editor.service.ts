@@ -14,7 +14,7 @@ const base_url: string = 'http://localhost:3000/api/'
 export class EditorService {
 
   token:string;
-  idRevistaActiva:string;
+  RevistaActiva:edicionModel;
 
   constructor(private http: HttpClient,private service:UserService) { 
     this.token=this.service.getToken();
