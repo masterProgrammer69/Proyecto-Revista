@@ -21,6 +21,7 @@ export class ListaDeArticulosComponent implements OnInit {
     this.getArticulos();
   }
 
+  //Llamamos al servicio para que nos devuelva los articulos
   getArticulos():void{
     this.servicio.getArticulos().subscribe(articulos =>{this.listaArticulos=articulos;
       this.total=articulos.length;

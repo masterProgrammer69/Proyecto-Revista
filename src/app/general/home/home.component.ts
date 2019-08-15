@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
   
   ngOnInit() {  
   }
-  
+
+  //Se encripta la contraseña, se envia al servicio con el correo par loguearse
+  //Por ultimo se redirige a el modulo que le corresponde a cada usuario
   loginUser():void{
     let cryptedPassword= sha256(this.password).toString();
     console.log("contraseña cifrada en  sha256:"+cryptedPassword);

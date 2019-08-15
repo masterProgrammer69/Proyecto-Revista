@@ -48,8 +48,8 @@ export class CrearEdicionComponent implements OnInit {
     this.edicionFormGroup = this.formGroupCreator();
   }
   
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
   modificaEdicionActiva():void {
     this.service.getEdicionActiva().subscribe(articulo =>{
       this.edicionActiva=articulo;
@@ -58,7 +58,6 @@ export class CrearEdicionComponent implements OnInit {
       alert("Se actualizo la edicion");
     });
   }
-  
   
   guardarEdicion(): void {
     if (this.edicionFormGroup.valid) {

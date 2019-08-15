@@ -49,7 +49,7 @@ export class HomeEditorComponent implements OnInit {
     });
   }
 
-
+  //Se llama el servicio para que nos devuelva la edicion activa
   getEdicionActiva(): void {
     this.ediServicio.getEdicionActiva().subscribe(edicion => {
       this.edicionActiva = edicion;
@@ -57,24 +57,26 @@ export class HomeEditorComponent implements OnInit {
     });
   }
 
+  //Se consiguen todos los articulos que esten en la edicion activa
   getArticulos(): void {
     this.autServicio.getArticulosPorEdicion(this.edicionActiva.id).subscribe(articulos => {
       this.listaArticulos = articulos;
     });
-
   }
 
+  //Se consigue el articulo seleccionado para mostrar en el modal
   asignaInformacionModal(idArticulo: string): void {
     this.autServicio.buscarArticulo(idArticulo).subscribe(articulo => {
       this.articuloTemporal = articulo;
     });
   }
 
-
+  //Metodos que activan los modals por medio de un booleano
   activarListadoEvaluadores(): void {
     this.mostrarEvaluadores = !this.mostrarEvaluadores;
   }
 
+  
   desactivaListadoEvaluadores(): void {
     this.mostrarEvaluadores = !this.mostrarEvaluadores;
   }

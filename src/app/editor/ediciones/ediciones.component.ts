@@ -43,12 +43,14 @@ export class EdicionesComponent implements OnInit {
     });
   }
 
+  //Le pedimos al servicio que devuelva todos los articulos
   getArticulos(): void {
     this.autService.getArticulos().subscribe(articulos => {
     this.listaArticulos = articulos;
     });
   }
 
+  //Se consigue el articulo que va en el modal 
   asignaInformacionModal(idArticulo: string): void {
     this.autService.buscarArticulo(idArticulo).subscribe(articulo => {
       this.articuloTemporal = articulo;

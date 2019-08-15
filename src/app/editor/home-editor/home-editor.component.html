@@ -58,7 +58,6 @@
                                     <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger"
                                         href="#modal1" (click)="asignaInformacionModal(a.id)"><i
                                             class="material-icons">library_books</i></a>
-
                                 </td>
                                 <td>
                                     <a class="btn-floating btn-large waves-effect waves-light green"><i
@@ -73,7 +72,7 @@
     </div>
 </div>
 
-<!-- Modal 1 Structure -->
+<!-- Modal que muestra todos las evaluadores para asignarlos-->
 <div id="modal1" class="modal modal-fixed-footer">
 
     <div *ngIf="mostrarEvaluadores; then thenBlock else elseBlock"></div>

@@ -12,10 +12,10 @@ import sha256 from 'crypto-js/sha256';
 })
 export class RegistrarEditorComponent implements OnInit {
   userFormGroup:FormGroup;
-
+  
   constructor(private service:UserService, private router:Router) {
     this.userFormGroup=this.formGroupCreator();
-   }
+  }
   
   formGroupCreator():FormGroup{
     return new FormGroup({
@@ -34,45 +34,45 @@ export class RegistrarEditorComponent implements OnInit {
   get pNombre(){
     return this.userFormGroup.get('pNombre');
   }
-
+  
   get sNombre(){
     return this.userFormGroup.get('sNombre');
   }
-
+  
   get pApellido(){
     return this.userFormGroup.get('pApellido');
   }
-
+  
   get sApellido(){
     return this.userFormGroup.get('sApellido');
   }
-
+  
   get email(){
     return this.userFormGroup.get('email');
   }
-
+  
   get telefono(){
     return this.userFormGroup.get('telefono');
   }
-
+  
   get password(){
     return this.userFormGroup.get('password');
   }
-
+  
   get pais(){
     return this.userFormGroup.get('pais');
   }
-
+  
   get formacion(){
     return this.userFormGroup.get('nivelDeFormacion');
   }
-
-
+  
+  
   ngOnInit() { }
-
+  
   guardarUsuario():void{
     let cryptedPassword= sha256(this.password.value).toString();
-
+    
     if(this.userFormGroup.valid)
     {
       let autor:userModel={
@@ -83,19 +83,18 @@ export class RegistrarEditorComponent implements OnInit {
         telefono:this.telefono.value,
         email:null,
         password:cryptedPassword,
-        pais:"string",//this.pais.value,
-        nivelDeFormacion:"string",//this.formacion.value,
+        pais:"string",
+        nivelDeFormacion:"string",
         rol:"autor",
         emailVerified: false,
         afiliacion:"string",
         id:null,
         user:null
       }
-
+      
+      //Se llama al servicio para que guarde el usuario nuevo
       this.service.crearUsuario(autor).subscribe(()=>{
         this.service.loginUser(cryptedPassword, this.email.value).subscribe(item =>{
-          //this.service.guardarToken(item.id);
-          //this.service.guardarInformacionUser(item);
           this.router.navigate(["envio-verificacion"]);
         }, (err) => {
         });
@@ -105,6 +104,6 @@ export class RegistrarEditorComponent implements OnInit {
       alert("No se puede registrar el usuario, la informacion esta incompleta o erronea!")
     }
   }
-
+  
 }
 
