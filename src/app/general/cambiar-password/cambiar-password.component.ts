@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { RecaptchaLoaderService } from 'ng-recaptcha';
+import { RecaptchaLoaderService } from 'ng-recaptcha';
 import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -8,12 +8,12 @@ import { Observable, BehaviorSubject } from 'rxjs';
   styleUrls: ['./cambiar-password.component.css']
 })
 export class CambiarPasswordComponent implements OnInit {
-  //public ready: Observable<ReCaptchaV2.ReCaptcha>;
+  public ready: Observable<ReCaptchaV2.ReCaptcha>;
   password="";
 
   constructor() {
-    //let readySubject = new BehaviorSubject<ReCaptchaV2.ReCaptcha>(grecaptcha);
-    //this.ready = readySubject.asObservable();
+    let readySubject = new BehaviorSubject<ReCaptchaV2.ReCaptcha>(grecaptcha);
+    this.ready = readySubject.asObservable();
    }
 
   ngOnInit() {

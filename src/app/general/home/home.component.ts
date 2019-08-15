@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
     this.servicio.loginUser(cryptedPassword, this.correo).subscribe(item =>{
       this.servicio.guardarToken(item.id);
       this.servicio.guardarRol(item.user.rol);
+      this.servicio.guardarUserId(item.user.id);
       this.servicio.guardarInformacionUser(item);
       if(this.servicio.getRol()=="autor")
       {

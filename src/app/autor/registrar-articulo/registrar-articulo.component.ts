@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AutorService } from 'src/app/servicios/articulo.service';
+import { AutorService } from 'src/app/servicios/autor.service';
 import { articuloModel } from 'src/app/models/articulo.model';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EditorService } from 'src/app/servicios/editor.service';
+import { edicionModel } from 'src/app/models/edicion.model';
 
 @Component({
   selector: 'app-registrar-articulo',
@@ -55,19 +56,29 @@ export class RegistrarArticuloComponent implements OnInit {
         PalabrasClave:this.PalabrasClave.value,
         Fecha:null,
         IdEdicion:null,
-        Autor:"a",
+        Autor:this.userService.getUserId(),
         Estado:"enviado"
       }
 
+      let edicionActual: edicionModel = {
+        Nombre: null,
+        Volumen: null,
+        Descripcion: null,
+        FechaLimite: null,
+        EstaActiva: "true",
+        IdEditor: null,
+        id:null
+      }
+      articulo.Autor=this.userService.getUserId();
 
-      articulo.Autor=this.userService.getIdUser();
-
-
-      alert(articulo.IdEdicion)
-      
-      this.service.crearArticulo(articulo).subscribe(()=>{
-        alert("Se han guardado los datos")
-        this.router.navigate(["autor/lista-de-articulos"]);
+      this.ediService.getEdicionActiva().subscribe(edicion=>{
+        edicionActual=edicion;
+        articulo.IdEdicion=edicionActual.id;
+        console.log("articulo:"+articulo.Autor);
+        this.service.crearArticulo(articulo).subscribe(()=>{
+          alert("Se han guardado los datos")
+          this.router.navigate(["autor/lista-de-articulos"]);
+        });
       });
     }else{
       alert("No se puede registrar el articulo, porfavor verifique la informacion!")

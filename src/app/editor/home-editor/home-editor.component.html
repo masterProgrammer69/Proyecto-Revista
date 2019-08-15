@@ -35,7 +35,6 @@
 
 <div class="row">
     <div class="col s10 offset-s1">
-
         <ul class="collapsible expandible">
             <li>
                 <div class="collapsible-header">Articulos de la edicion</div>
@@ -63,20 +62,16 @@
                                 </td>
                                 <td>
                                     <a class="btn-floating btn-large waves-effect waves-light green"><i
-                                            class="material-icons">file_download</i></a></td>
+                                            class="material-icons">file_download</i></a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </li>
-
         </ul>
     </div>
 </div>
-
-
-
-
 
 <!-- Modal 1 Structure -->
 <div id="modal1" class="modal modal-fixed-footer">
@@ -87,43 +82,19 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Item Name</th>
-                        <th>Item Price</th>
+                        <th>Nombre</th>
+                        <th>Especialidad</th>
+                        <th>Accion</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
+                    <tr *ngFor="let evaluador of listaEvaluadores">
+                        <td>{{evaluador.nombre}}</td>
+                        <td>{{evaluador.especialidad}}</td>
                         <td>
                             <a class="waves-effect waves-light btn-small orange "
                                 (click)="asignaEvaluadorTemp()">Asignar</a>
                         </td>
-
-
-                    </tr>
-                    <tr>
-                        <td>Alan</td>
-                        <td>Jellybean</td>
-                        <td>
-                            <form action="#">
-                                <p>
-                                    <label>
-                                        <input type="checkbox" />
-                                        <span>Asignar</span>
-                                    </label>
-                                </p>
-                            </form>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-
                     </tr>
                 </tbody>
             </table>
@@ -141,7 +112,7 @@
             <h6>{{articuloTemporal.Titulo}}</h6>
 
             <h5>Autor</h5>
-            <h6>{{articuloTemporal.Autor}}</h6>
+            <h6>{{articuloTemporal.IdAutor}}</h6>
 
             <h5>Palabras clave</h5>
             <h6>{{articuloTemporal.PalabrasClave}}</h6>

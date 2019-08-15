@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { edicionModel } from 'src/app/models/edicion.model';
 import { EditorService } from 'src/app/servicios/editor.service';
 import { articuloModel } from 'src/app/models/articulo.model';
-import { AutorService } from 'src/app/servicios/articulo.service';
+import { AutorService } from 'src/app/servicios/autor.service';
 
 @Component({
   selector: 'app-ediciones',
@@ -55,4 +55,3 @@ export class EdicionesComponent implements OnInit {
     });
   }
 }
-

@@ -1,5 +1,5 @@
 import { Component, OnInit, Query } from '@angular/core';
-import { AutorService } from '../../servicios/articulo.service';
+import { AutorService } from '../../servicios/autor.service';
 import { articuloModel } from 'src/app/models/articulo.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
@@ -22,7 +22,7 @@ export class ArticleListComponent implements OnInit {
   }
 
   getArticulosPorAutor():void{
-    let id=this.servicioUser.getIdUser();
+    let id=this.servicioUser.getUserId();
     this.servicioAutor.getArticulosPorAutor(id).subscribe(articulos =>{this.listaArticulos=articulos}); 
   }
 
