@@ -1,27 +1,4 @@
-<!-- Modal Structure -->
-<div id="modal2" class="modal modal-fixed-footer">
-    <div class="modal-content">
-        <h5>Titulo</h5>
-        <h6>Titulo de prueba 1</h6>
 
-        <h5>Autor</h5>
-        <h6>Autor de prueba 1</h6>
-
-        <h5>Palabras clave</h5>
-        <h6>Palabras clave de prueba 1</h6>
-
-        <h5>Revista</h5>
-        <h6>Revista 1</h6>
-
-        <h5>Evaluadores</h5>
-        <h6>A,B,C</h6>
-
-    </div>
-
-    <div class="modal-footer">
-        <a class="waves-effect waves-light btn-small green" (click)="descargarArchivo()">Descargar</a>
-    </div>
-</div>
 
 <div class="center">
     <h2>
@@ -32,141 +9,107 @@
 <div class="row">
     <div class="col s10 offset-s1">
 
-        <h3>Articulos del evaluador</h3>
+        <ul class="collapsible">
+            <ng-container *ngFor="let edi of edicionesViejas">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{edi.Nombre}}</div>
+                    <div class="collapsible-body"><span>
+                            <h5>Rechazados</h5>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width: 45%;">Titulo</th>
+                                        <th style="width: 45%;">Autor</th>
+                                        <th style="width: 5%;"></th>
+                                        <th style="width: 5%;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngFor="let a of listaArticulos">
+                                        <ng-container *ngIf="a.IdEdicion==edi.id && a.Estado=='rechazado'">
+                                            <tr>
+                                                <td>{{a.Titulo}}</td>
+                                                <td>{{a.Autor}}</td>
+                                                <td>
 
-        <ul class="collapsible expandible">
-            <li>
-                <div class="collapsible-header">Articulos</div>
-                <div class="collapsible-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 40%;">Id</th>
-                                <th style="width: 40%;">Titulo</th>
-                                <th style="width: 15%;">Nota</th>
-                                <th style="width: 5%;"></th>
-                            </tr>
-                        </thead>
+                                                    <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger"
+                                                        href="#modal6" (click)="asignaInformacionModal(a.id)"><i
+                                                            class="material-icons">library_books</i></a>
 
-                        <tbody>
-                            <tr>
-                                <td>Id</td>
-                                <td>Titulo</td>
-                                <td>
+                                                </td>
+                                                <td>
+                                                    <a class="btn-floating btn-large waves-effect waves-light green"><i
+                                                            class="material-icons">file_download</i></a></td>
+                                            </tr>
+                                        </ng-container>
+                                    </ng-container>
 
-                                    <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger"
-                                        href="#modalEva" (click)="asignaInformacionModal(a.id)"><i
-                                            class="material-icons">library_books</i></a>
+                                </tbody>
+                            </table>
 
-                                </td>
-                                <td>
-                                    <a class="btn-floating btn-large waves-effect waves-light green"><i
-                                            class="material-icons">file_download</i></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </li>
 
-            <li>
-                <div class="collapsible-header">Articulos</div>
-                <div class="collapsible-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 40%;">Id</th>
-                                <th style="width: 40%;">Titulo</th>
-                                <th style="width: 15%;">Nota</th>
-                                <th style="width: 5%;"></th>
-                            </tr>
-                        </thead>
+                            <h5>Aceptados</h5>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width: 45%;">Titulo</th>
+                                        <th style="width: 45%;">Autor</th>
+                                        <th style="width: 5%;"></th>
+                                        <th style="width: 5%;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngFor="let a of listaArticulos">
+                                        <ng-container *ngIf="a.IdEdicion==edi.id && a.Estado=='aceptado'">
+                                            <tr>
+                                                <td>{{a.Titulo}}</td>
+                                                <td>{{a.Autor}}</td>
+                                                <td>
 
-                        <tbody>
-                            <tr>
-                                <td>Id</td>
-                                <td>Titulo</td>
-                                <td>
+                                                    <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger"
+                                                        href="#modal6" (click)="asignaInformacionModal(a.id)"><i
+                                                            class="material-icons">library_books</i></a>
 
-                                    <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger"
-                                        href="#modalEva" (click)="asignaInformacionModal(a.id)"><i
-                                            class="material-icons">library_books</i></a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn-floating btn-large waves-effect waves-light green"><i
+                                                            class="material-icons">file_download</i></a></td>
+                                            </tr>
+                                        </ng-container>
+                                    </ng-container>
 
-                                </td>
-                                <td>
-                                    <a class="btn-floating btn-large waves-effect waves-light green"><i
-                                            class="material-icons">file_download</i></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </li>
+                                </tbody>
+                            </table>
 
-            <li>
-                <div class="collapsible-header">Articulos</div>
-                <div class="collapsible-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 40%;">Id</th>
-                                <th style="width: 40%;">Titulo</th>
-                                <th style="width: 15%;">Nota</th>
-                                <th style="width: 5%;"></th>
-                            </tr>
-                        </thead>
 
-                        <tbody>
-                            <tr>
-                                <td>Id</td>
-                                <td>Titulo</td>
-                                <td>
 
-                                    <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger"
-                                        href="#modalEva" (click)="asignaInformacionModal(a.id)"><i
-                                            class="material-icons">library_books</i></a>
 
-                                </td>
-                                <td>
-                                    <a class="btn-floating btn-large waves-effect waves-light green"><i
-                                            class="material-icons">file_download</i></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </li>
-
-            <li>
-                <div class="collapsible-header">Articulos</div>
-                <div class="collapsible-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 40%;">Id</th>
-                                <th style="width: 40%;">Titulo</th>
-                                <th style="width: 15%;">Nota</th>
-                                <th style="width: 5%;"></th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Id</td>
-                                <td>Titulo</td>
-                                <td>
-
-                                    <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger"
-                                        href="#modalEva" (click)="asignaInformacionModal(a.id)"><i
-                                            class="material-icons">library_books</i></a>
-
-                                </td>
-                                <td>
-                                    <a class="btn-floating btn-large waves-effect waves-light green"><i
-                                            class="material-icons">file_download</i></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </li>
+                        </span></div>
+                </li>
+            </ng-container>
 
         </ul>
     </div>
 </div>
+
+
+  <!-- Modal Structure -->
+  <div id="modal6" class="modal">
+        <div class="modal-content">
+                <h5>Titulo</h5>
+                <h6>{{articuloTemporal.Titulo}}</h6>
+    
+                <h5>Autor</h5>
+                <h6>{{articuloTemporal.Autor}}</h6>
+    
+                <h5>Palabras clave</h5>
+                <h6>{{articuloTemporal.PalabrasClave}}</h6>
+    
+                <h5>Abstract</h5>
+                <h6>{{articuloTemporal.Abstract}}</h6>
+    
+                <h5>Evaluadores</h5>
+                <h6>A,B,C</h6>
+    
+            </div>
+  </div>
