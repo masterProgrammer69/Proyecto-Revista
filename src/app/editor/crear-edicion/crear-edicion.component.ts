@@ -70,7 +70,7 @@ export class CrearEdicionComponent implements OnInit {
         Descripcion: this.Descripcion.value,
         FechaLimite: null,
         EstaActiva: "true",
-        IdEditor: this.userService.getIdUser(),
+        IdEditor: this.userService.getUserId(),
       }
       
       //Conseguimos la edicion activa

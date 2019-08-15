@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { edicionModel } from 'src/app/models/edicion.model';
 import { EditorService } from 'src/app/servicios/editor.service';
 import { articuloModel } from 'src/app/models/articulo.model';
-import { AutorService } from 'src/app/servicios/articulo.service';
+import { AutorService } from 'src/app/servicios/autor.service';
+import { userModel } from 'src/app/models/user.model';
+import { UserService } from 'src/app/servicios/user.service';
 
 @Component({
   selector: 'app-home-editor',
@@ -22,6 +24,7 @@ export class HomeEditorComponent implements OnInit {
     IdEditor: null,
   };
   listaArticulos: articuloModel[] = [];
+  listaEvaluadores:userModel[]=[];
 
   articuloTemporal: articuloModel = {
     id: null,
@@ -34,16 +37,16 @@ export class HomeEditorComponent implements OnInit {
     IdEdicion: null,
   };
 
-
-
   mostrarEvaluadores = false;
 
-
-  constructor(private ediServicio: EditorService, private autServicio: AutorService) { }
+  constructor(private ediServicio: EditorService, private autServicio: AutorService,private userService:UserService) { }
 
   ngOnInit() {
     this.getEdicionActiva();
-
+    this.ediServicio.getEvaluadores().subscribe(evaluador =>{
+      this.listaEvaluadores=evaluador;
+      console.log("lista:"+this.listaEvaluadores.length);
+    });
   }
 
 
@@ -51,15 +54,12 @@ export class HomeEditorComponent implements OnInit {
     this.ediServicio.getEdicionActiva().subscribe(edicion => {
       this.edicionActiva = edicion;
       this.getArticulos();
-
     });
   }
 
   getArticulos(): void {
     this.autServicio.getArticulosPorEdicion(this.edicionActiva.id).subscribe(articulos => {
       this.listaArticulos = articulos;
-
-
     });
 
   }
@@ -68,9 +68,6 @@ export class HomeEditorComponent implements OnInit {
     this.autServicio.buscarArticulo(idArticulo).subscribe(articulo => {
       this.articuloTemporal = articulo;
     });
-
-
-
   }
 
 

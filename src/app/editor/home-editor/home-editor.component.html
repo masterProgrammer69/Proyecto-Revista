@@ -15,170 +15,145 @@
                         <div class="col s4 ">
                             <a routerLink="ediciones" class="waves-effect waves-light btn blue">Ediciones
                                 antiguas</a>
-                        </div>
-                        <div class="col s4 ">
-                            <a 
+                            </div>
+                            <div class="col s4 ">
+                                <a 
                                 class="waves-effect waves-light btn lime darken-2 modal-trigger"
                                 href="#modal4">Estadisticas revista</a>
-                        </div>
-
-                        <div class="col s4">
-                            <a routerLink="crear_edicion" class="waves-effect waves-light btn green">Crear nueva
-                                edicion</a>
+                            </div>
+                            
+                            <div class="col s4">
+                                <a routerLink="crear_edicion" class="waves-effect waves-light btn green">Crear nueva
+                                    edicion</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col s10 offset-s1">
-
-        <ul class="collapsible expandible">
-            <li>
-                <div class="collapsible-header">Articulos de la edicion</div>
-                <div class="collapsible-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 45%;">Titulo</th>
-                                <th style="width: 45%;">Autor</th>
-                                <th style="width: 5%;"></th>
-                                <th style="width: 5%;"></th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr *ngFor="let a of listaArticulos">
-                                <td>{{a.Titulo}}</td>
-                                <td>{{a.Autor}}</td>
-                                <td>
-
-                                    <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger"
-                                        href="#modal1" (click)="asignaInformacionModal(a.id)"><i
+        
+        
+        <div class="row">
+            <div class="col s10 offset-s1">            
+                <ul class="collapsible expandible">
+                    <li>
+                        <div class="collapsible-header">Articulos de la edicion</div>
+                        <div class="collapsible-body">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width: 45%;">Titulo</th>
+                                        <th style="width: 45%;">Autor</th>
+                                        <th style="width: 5%;"></th>
+                                        <th style="width: 5%;"></th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    <tr *ngFor="let a of listaArticulos">
+                                        <td>{{a.Titulo}}</td>
+                                        <td>{{a.Autor}}</td>
+                                        <td>
+                                            
+                                            <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger"
+                                            href="#modal1" (click)="asignaInformacionModal(a.id)"><i
                                             class="material-icons">library_books</i></a>
-
-                                </td>
-                                <td>
-                                    <a class="btn-floating btn-large waves-effect waves-light green"><i
-                                            class="material-icons">file_download</i></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                            
+                                        </td>
+                                        <td>
+                                            <a class="btn-floating btn-large waves-effect waves-light green"><i
+                                                class="material-icons">file_download</i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>     
+                    </ul>
                 </div>
-            </li>
+            </div>            
+            
+            <!-- Modal 1 Structure -->
+            <div id="modal1" class="modal modal-fixed-footer">
+                
+                <div *ngIf="mostrarEvaluadores; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+                    <div class="modal-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Especialidad</th>
+                                    <th>Accion</th>
+                                </tr>
+                            </thead>                           
+                            <tbody>
+                                <tr *ngFor="let evaluador of listaEvaluadores">
+                                    <td>{{evaluador.nombre}}</td>
+                                    <td>{{evaluador.especialidad}}</td>
+                                    <td>
+                                        <a class="waves-effect waves-light btn-small orange "
+                                        (click)="asignaEvaluadorTemp()">Asignar</a>
+                                    </td>            
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="waves-effect waves-light btn-small red " (click)="desactivaListadoEvaluadores()">Salir</a>
+                        <a class="waves-effect waves-light btn-small green" (click)="asignarEvaluadores()">Aceptar</a>
+                        
+                    </div>
+                    
+                </ng-template>
+                <ng-template #elseBlock>
+                    <div class="modal-content">
+                        <h5>Titulo</h5>
+                        <h6>{{articuloTemporal.Titulo}}</h6>
+                        
+                        <h5>Autor</h5>
+                        <h6>{{articuloTemporal.IdAutor}}</h6>
+                        
+                        <h5>Palabras clave</h5>
+                        <h6>{{articuloTemporal.PalabrasClave}}</h6>
+                        
+                        <h5>Abstract</h5>
+                        <h6>{{articuloTemporal.Abstract}}</h6>
+                        
+                        <h5>Evaluadores</h5>
+                        <h6>A,B,C</h6>
+                        
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <a class="waves-effect waves-light btn-small blue" (click)="activarListadoEvaluadores()">Asignar
+                            evaluadores</a>
+                            <a class="waves-effect waves-light btn-small green" (click)="descargarArchivo()">Descargar</a>
+                        </div>
+                        
+                    </ng-template>
+                    
+                </div>
+                
+                <!-- Modal Structure -->
+                <div id="modal4" class="modal modal-fixed-footer">
+                    <div class="row">
+                        <div class="col s12">
+                            <ul class="tabs">
+                                <li class="tab col s3"><a href="#test1">Estadisticas</a></li>
+                                <li class="tab col s3"><a href="#test2">A</a></li>
+                                <li class="tab col s3"><a href="#test3">B</a></li>
+                                <li class="tab col s3"><a href="#test4">C</a></li>
+                            </ul>
+                        </div>
+                        <div id="test1" class="col s12">Estadisticas de todo el sistema</div>
+                        <div id="test2" class="col s12">2</div>
+                        <div id="test3" class="col s12">3</div>
+                        <div id="test4" class="col s12">4</div>
+                    </div>
+                </div>
 
-        </ul>
-    </div>
-</div>
 
-
-
-
-
-<!-- Modal 1 Structure -->
-<div id="modal1" class="modal modal-fixed-footer">
-
-    <div *ngIf="mostrarEvaluadores; then thenBlock else elseBlock"></div>
-    <ng-template #thenBlock>
-        <div class="modal-content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Item Name</th>
-                        <th>Item Price</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>
-                            <a class="waves-effect waves-light btn-small orange "
-                                (click)="asignaEvaluadorTemp()">Asignar</a>
-                        </td>
-
-
-                    </tr>
-                    <tr>
-                        <td>Alan</td>
-                        <td>Jellybean</td>
-                        <td>
-                            <form action="#">
-                                <p>
-                                    <label>
-                                        <input type="checkbox" />
-                                        <span>Asignar</span>
-                                    </label>
-                                </p>
-                            </form>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="modal-footer">
-            <a class="waves-effect waves-light btn-small red " (click)="desactivaListadoEvaluadores()">Salir</a>
-            <a class="waves-effect waves-light btn-small green" (click)="asignarEvaluadores()">Aceptar</a>
-
-        </div>
-
-    </ng-template>
-    <ng-template #elseBlock>
-        <div class="modal-content">
-            <h5>Titulo</h5>
-            <h6>{{articuloTemporal.Titulo}}</h6>
-
-            <h5>Autor</h5>
-            <h6>{{articuloTemporal.IdAutor}}</h6>
-
-            <h5>Palabras clave</h5>
-            <h6>{{articuloTemporal.PalabrasClave}}</h6>
-
-            <h5>Abstract</h5>
-            <h6>{{articuloTemporal.Abstract}}</h6>
-
-            <h5>Evaluadores</h5>
-            <h6>A,B,C</h6>
-
-        </div>
-
-        <div class="modal-footer">
-            <a class="waves-effect waves-light btn-small blue" (click)="activarListadoEvaluadores()">Asignar
-                evaluadores</a>
-            <a class="waves-effect waves-light btn-small green" (click)="descargarArchivo()">Descargar</a>
-        </div>
-
-    </ng-template>
-
-</div>
-
-<!-- Modal Structure -->
-<div id="modal4" class="modal modal-fixed-footer">
-    <div class="row">
-        <div class="col s12">
-            <ul class="tabs">
-                <li class="tab col s3"><a href="#test1">Estadisticas</a></li>
-                <li class="tab col s3"><a href="#test2">A</a></li>
-                <li class="tab col s3"><a href="#test3">B</a></li>
-                <li class="tab col s3"><a href="#test4">C</a></li>
-            </ul>
-        </div>
-        <div id="test1" class="col s12">Estadisticas de todo el sistema</div>
-        <div id="test2" class="col s12">2</div>
-        <div id="test3" class="col s12">3</div>
-        <div id="test4" class="col s12">4</div>
-    </div>
-</div>
+    
+    

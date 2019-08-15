@@ -45,6 +45,8 @@ export class UserService {
     });
   }
 
+  
+
   guardarToken(token) {
     localStorage.setItem("userTk", token);
   }
@@ -53,12 +55,20 @@ export class UserService {
     localStorage.setItem("userRol", rol);
   }
 
+  guardarUserId(id) {
+    localStorage.setItem("userId", id);
+  }
+
   getToken() {
     return localStorage.getItem("userTk");
   }
 
   getRol() {
     return localStorage.getItem("userRol");
+  }
+
+  getUserId() {
+    return localStorage.getItem("userId");
   }
 
   guardarInformacionUser(user: userModel): void {
@@ -77,11 +87,6 @@ export class UserService {
   enviarEmail(Usuario){
 
     
-  }
-
-  getIdUser() {
-    let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    return userInfo["id"];
   }
 
   logOutUser() {

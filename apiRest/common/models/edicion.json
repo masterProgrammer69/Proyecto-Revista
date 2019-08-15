@@ -21,28 +21,19 @@
     },
     "FechaLimite": {
       "type": "date"
-
-      
     },
     "EstaActiva": {
       "type": "string",
       "required": true,
-      "default": true
+      "default": "true"
     },
     "IdEditor": {
-      "type": "string",
-      "required": true
+      "type": "string"
     }
   },
   "validations": [],
   "relations": {},
   "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW"
-    },
     {
       "accessType": "*",
       "principalType": "ROLE",
