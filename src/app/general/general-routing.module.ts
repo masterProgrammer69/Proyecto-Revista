@@ -7,42 +7,48 @@ import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.co
 import { ListaDeArticulosComponent } from './lista-de-articulos/lista-de-articulos.component';
 import { AutorRoutingModule } from '../autor/autor-routing.module';
 import { LogoutGuard } from '../guards/logout.guard';
+import { VerificacionComponent } from './verificacion/verificacion.component';
 
 const routes: Routes = [
   {
-    path:"home",
-    component:HomeComponent,
-    canActivate:[
+    path: "home",
+    component: HomeComponent,
+    canActivate: [
       LogoutGuard
     ]
   },
   {
-    path:"cambiar-password",
+    path: "cambiar-password",
     component: CambiarPasswordComponent
-    
+
   },
   {
-    path:"lista-de-articulos",
+    path: "lista-de-articulos",
     component: ListaDeArticulosComponent,
-    canActivate:[
+    canActivate: [
       LogoutGuard
     ]
   },
   {
-    path:"not-found",
-    component:NotFoundComponent
+    path: "verificacion/:token",
+    component: VerificacionComponent
+  }
+  ,
+  {
+    path: "not-found",
+    component: NotFoundComponent
   },
   {
-    path:"",
-    pathMatch:"full",
-    component:HomeComponent,
-    canActivate:[
+    path: "",
+    pathMatch: "full",
+    component: HomeComponent,
+    canActivate: [
       LogoutGuard
     ]
   },
   {
-    path:"**",
-    component:NotFoundComponent
+    path: "**",
+    component: NotFoundComponent
   }
 ];
 
@@ -50,7 +56,6 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes),
     GeneralModule,
     AutorRoutingModule],
-    exports: [RouterModule]
-  })
-  export class GeneralRoutingModule { }
-  
+  exports: [RouterModule]
+})
+export class GeneralRoutingModule { }

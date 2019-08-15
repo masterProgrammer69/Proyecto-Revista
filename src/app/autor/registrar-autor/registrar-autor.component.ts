@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { userModel } from 'src/app/models/user.model';
 import sha256 from 'crypto-js/sha256';
+import { EmailService } from 'src/app/servicios/email.service';
 
 @Component({
   selector: 'app-registrar-autor',
@@ -13,7 +14,7 @@ import sha256 from 'crypto-js/sha256';
 export class RegistrarAutorComponent implements OnInit {
   userFormGroup:FormGroup;
 
-  constructor(private service:UserService, private router:Router) {
+  constructor(private service:UserService,private emailService: EmailService,private router:Router) {
     this.userFormGroup=this.formGroupCreator();
    }
   
@@ -68,7 +69,18 @@ export class RegistrarAutorComponent implements OnInit {
 
   ngOnInit() { }
 
-  //Se crea un autor con la informacion de el FormGroup y luego se envia al servicio para que lo guarde
+  enviaCorreo(nombre:string,email:string,token:string): void {
+
+    let tema="Verificacion de correo";
+    let mensaje="Hola "+nombre+",<br/><br/>Gracias por registrarse a la pagina de la revista Vector.<br/><br/>Para completar su registro, haga click en el siguiente link:<br/>http://localhost:4200/verificacion/"+token+"<br/><br/>Si no ha solicitado el registro a la pagina, por favor ignore este correo.<br/><br/>¡¡Esperamos muchos articulos de su parte!!<br/>";
+    let emailDestinatario=email;
+
+    alert("Gracias por su registro, se ha enviado un mesaje de verificacion a su correo, por favor reviselo.")
+    this.emailService.enviarEmail(mensaje,tema,emailDestinatario).subscribe(item => {
+      console.log(item);
+    });
+  }
+
   guardarUsuario():void{
     let cryptedPassword= sha256(this.password.value).toString();
 
@@ -93,7 +105,9 @@ export class RegistrarAutorComponent implements OnInit {
 
       this.service.crearUsuario(autor).subscribe(()=>{
         this.service.loginUser(cryptedPassword, this.email.value).subscribe(item =>{
-          this.router.navigate(["envio-verificacion"]);
+
+          this.enviaCorreo(autor.primerNombre,autor.email,item.id);
+          this.router.navigate(["home"]);
         }, (err) => {
         });
         this.router.navigate(["home"]);

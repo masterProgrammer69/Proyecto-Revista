@@ -67,6 +67,8 @@ export class UserService {
     return localStorage.getItem("userRol");
   }
 
+
+
   getUserId() {
     return localStorage.getItem("userId");
   }
@@ -84,10 +86,7 @@ export class UserService {
     return userInfo;
   }
 
-  enviarEmail(Usuario){
 
-    
-  }
 
   logOutUser() {
     localStorage.removeItem("userInfo");
