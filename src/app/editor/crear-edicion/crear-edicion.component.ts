@@ -53,9 +53,7 @@ export class CrearEdicionComponent implements OnInit {
   modificaEdicionActiva():void {
     this.service.getEdicionActiva().subscribe(articulo =>{
       this.edicionActiva=articulo;
-      alert("el dato "+this.edicionActiva.id);
     });
-    
     this.service.actualizarEdicion(this.edicionActiva).subscribe(item => {
       alert("Se actualizo la edicion");
     });
@@ -76,7 +74,6 @@ export class CrearEdicionComponent implements OnInit {
       //Conseguimos la edicion activa
       this.service.getEdicionActiva().subscribe(edicio =>{
         this.edit=edicio;
-        alert("---"+this.edit.EstaActiva)
         //Y la desactivamos
         this.service.desactivarEdicion(this.edit).subscribe(() => {
           //Procedemos a crear la nueva edicion activa

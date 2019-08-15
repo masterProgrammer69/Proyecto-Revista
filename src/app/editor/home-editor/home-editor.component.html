@@ -75,8 +75,7 @@
             </div>            
             
             <!-- Modal 1 Structure -->
-            <div id="modal1" class="modal modal-fixed-footer">
-                
+            <div id="modal1" class="modal modal-fixed-footer">          
                 <div *ngIf="mostrarEvaluadores; then thenBlock else elseBlock"></div>
                 <ng-template #thenBlock>
                     <div class="modal-content">
@@ -90,7 +89,8 @@
                             </thead>                           
                             <tbody>
                                 <tr *ngFor="let evaluador of listaEvaluadores">
-                                    <td>{{evaluador.nombre}}</td>
+                                    <td>{{evaluador.primerNombre}}</td>
+                                    <td>{{evaluador.primerApellido}}</td>
                                     <td>{{evaluador.especialidad}}</td>
                                     <td>
                                         <a class="waves-effect waves-light btn-small orange "

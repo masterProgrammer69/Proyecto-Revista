@@ -20,7 +20,8 @@ export class ArticleListComponent implements OnInit {
   ngOnInit() {
     this.getArticulosPorAutor();
   }
-
+  
+  //Se llama el servicio el cual trae los articulos
   getArticulosPorAutor():void{
     let id=this.servicioUser.getUserId();
     this.servicioAutor.getArticulosPorAutor(id).subscribe(articulos =>{this.listaArticulos=articulos}); 

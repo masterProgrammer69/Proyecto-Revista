@@ -7,12 +7,20 @@ import { EdicionesComponent } from './ediciones/ediciones.component';
 import { CrearEdicionComponent } from './crear-edicion/crear-edicion.component';
 import { AutorGuard } from '../guards/autor.guard';
 import { EditorGuard } from '../guards/editor.guard';
+import { InvitarEvaluadorComponent } from './invitar-evaluador/invitar-evaluador.component';
 
 
 const routes: Routes = [
   {
     path:"editor/registro",
     component:RegistrarEditorComponent,
+    canActivate:[
+      EditorGuard
+    ]
+  },
+  {
+    path:"editor/invitar-evaluador",
+    component:InvitarEvaluadorComponent,
     canActivate:[
       EditorGuard
     ]

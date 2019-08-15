@@ -26,9 +26,6 @@ export class RegistrarAutorComponent implements OnInit {
       telefono:new FormControl('',[Validators.required]),
       email:new FormControl('',[Validators.required]),
       password:new FormControl('',[Validators.required])
-      //pais:new FormControl('',[]),
-      //formacion:new FormControl('',[]),
-      //rol:new FormControl('',[])
     });
   }
   
@@ -71,6 +68,7 @@ export class RegistrarAutorComponent implements OnInit {
 
   ngOnInit() { }
 
+  //Se crea un autor con la informacion de el FormGroup y luego se envia al servicio para que lo guarde
   guardarUsuario():void{
     let cryptedPassword= sha256(this.password.value).toString();
 
@@ -84,8 +82,8 @@ export class RegistrarAutorComponent implements OnInit {
         telefono:this.telefono.value,
         email:this.email.value,
         password:cryptedPassword,
-        pais:"string",//this.pais.value,
-        nivelDeFormacion:"string",//this.formacion.value,
+        pais:"string",
+        nivelDeFormacion:"string",
         rol:"autor",
         emailVerified: false,
         afiliacion:"string",

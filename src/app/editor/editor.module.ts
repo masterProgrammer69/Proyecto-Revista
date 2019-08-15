@@ -8,10 +8,11 @@ import { EdicionesComponent } from './ediciones/ediciones.component';
 import { CrearEdicionComponent } from './crear-edicion/crear-edicion.component';
 import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
+import { InvitarEvaluadorComponent } from './invitar-evaluador/invitar-evaluador.component';
 
 
 @NgModule({
-  declarations: [RegistrarEditorComponent, HomeEditorComponent, EdicionesComponent, CrearEdicionComponent],
+  declarations: [RegistrarEditorComponent, HomeEditorComponent, EdicionesComponent, CrearEdicionComponent, InvitarEvaluadorComponent],
   imports: [
     CommonModule,
     EditorRoutingModule,
