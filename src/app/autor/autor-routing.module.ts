@@ -53,13 +53,6 @@ const routes: Routes = [
     ]
   },
 
-    {
-      path:"envio-verificacion",
-      component: EnvioVerificacionComponent
-    }
-
-
-
 ];
 
 @NgModule({
