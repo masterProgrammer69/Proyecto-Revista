@@ -83,13 +83,15 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
+                        <th>Apellido</th>
                         <th>Especialidad</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let evaluador of listaEvaluadores">
-                        <td>{{evaluador.nombre}}</td>
+                        <td>{{evaluador.primerNombre}}</td>
+                        <td>{{evaluador.primerApellido}}</td>
                         <td>{{evaluador.especialidad}}</td>
                         <td>
                             <a class="waves-effect waves-light btn-small orange "

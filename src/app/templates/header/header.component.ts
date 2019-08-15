@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   usuarioLogueado:boolean=false;
+  rol:string="";
 
   constructor(private servicio:UserService, private router:Router) { }
 
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   mostrarMenu():void{
     let userInfo=this.servicio.getInformacionUser();
+    this.rol=this.servicio.getRol();
     if(userInfo==null)
     {
       this.usuarioLogueado=false;

@@ -3,7 +3,8 @@
         <a href="home"><img height=65s src="/assets/img/logo.png"/> </a>
         <ul class="right hide-on-med-and-down">
             <li *ngIf="usuarioLogueado==false"><a href="autor/registrar-autor" class="indigo ligther-1 white-text">Registrarse</a></li>
-            <li *ngIf="usuarioLogueado==true"><a href="autor/registrar-articulo " class="indigo ligther-1 white-text">Nuevo Articulo </a></li>
+            <li *ngIf="usuarioLogueado==true && rol=='autor' "><a href="autor/registrar-articulo " class="indigo ligther-1 white-text">Nuevo Articulo </a></li>
+            <li *ngIf="usuarioLogueado==true && rol=='editor' "><a href="editor/invitar-evaluador " class="indigo ligther-1 white-text">Invitar </a></li>
             <li *ngIf="usuarioLogueado==true"><a href="home" (click)="salir()" class="indigo ligther-1 white-text">Salir</a></li>
         </ul>
 
